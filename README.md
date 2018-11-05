@@ -29,6 +29,15 @@ You will need to place it in a folder with all the DLLs provided as part of Ulte
 
 #### Extending XonoVIEW
 
+Please refer to the docstrings in the [DLL API specification][xonoview-api] for what functionality is already
+available.
+You can extend the DLL API by adding new functions that can subsequently be
+[imported in LabVIEW][labview-howto].
+In this process the DLL will need to be [re-built][xonoview-howto].
+
+[xonoview-api]: ./api/dll.h
+[xonoview-howto]: ./doc/build.md
+
 #### Limitations
 
 
