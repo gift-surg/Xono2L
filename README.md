@@ -35,7 +35,7 @@ You can extend the DLL API by adding new functions that can subsequently be
 [imported in LabVIEW][labview-howto].
 In this process the DLL will need to be [re-built][xonoview-howto].
 
-[xonoview-api]: ./api/dll.h
+[xonoview-api]: ./api/xonoview.h
 [xonoview-howto]: ./doc/build.md
 
 #### Limitations
