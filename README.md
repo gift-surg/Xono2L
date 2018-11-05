@@ -63,7 +63,7 @@ Copyright 2014 Ultrasonix Medical Corporation (now [BK Ultrasound][sonix])
 
 ### Acknowledgements
 
-GIFT-Grab was developed as part of the [GIFT-Surg][gift-surg] project.
+XonoVIEW was developed as part of the [GIFT-Surg][gift-surg] project.
 This work was supported through an Innovative Engineering for Health award by the [Wellcome Trust][wt] [WT101957], the
 [Engineering and Physical Sciences Research Council (EPSRC)][epsrc] [NS/A000027/1] and a [National Institute for Health
 Research][nihr] Biomedical Research Centre UCLH/UCL High Impact Initiative.
