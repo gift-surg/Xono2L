@@ -7,6 +7,17 @@ for use with [Sonix ultrasound systems][sonix].
 [sonix]: https://www.bkmedical.com/
 
 
+### Getting started
+
+#### Dependencies
+
+#### Usage
+
+#### Extending XonoVIEW
+
+#### Limitations
+
+
 ### Licensing and Copyright
 
 #### XonoVIEW
