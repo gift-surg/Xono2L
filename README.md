@@ -40,6 +40,9 @@ In this process the DLL will need to be [re-built][xonoview-howto].
 
 #### Limitations
 
+The Ulterius library is available only in 32-bit mode.
+As a result, XonoVIEW is 32-bit only and hence requires LabVIEW to be run in 32-bit mode.
+
 
 ### Licensing and Copyright
 
