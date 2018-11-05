@@ -11,6 +11,14 @@ for use with [Sonix ultrasound systems][sonix].
 
 #### Dependencies
 
+XonoVIEW uses functionality provided by the Ulterius library, and was tested on a platform with:
+
+- Windows 10 version **TODO**
+- Microsoft Visual Studio version **TODO**
+- GCC version **TODO**, using C++11 as the standard **TODO**
+- Sonix SDK (Ulterius) version 6.1.0
+- LabVIEW version **TODO**
+
 #### Usage
 
 #### Extending XonoVIEW
