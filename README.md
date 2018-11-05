@@ -21,6 +21,12 @@ XonoVIEW uses functionality provided by the Ulterius library, and was tested on 
 
 #### Usage
 
+The [provided pre-built DLL][xonoview-dll] can be [imported in LabVIEW][labview-howto].
+You will need to place it in a folder with all the DLLs provided as part of Ulterius.
+
+[xonoview-dll]: ./lib/xonoview.dll
+[labview-howto]: ./doc/labview.md
+
 #### Extending XonoVIEW
 
 #### Limitations
