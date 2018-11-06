@@ -1,5 +1,5 @@
 #include "stdafx.h"
-#include "labview_dll.h"
+#include "xonoview.h"
 #include "b_mode_frame.h"
 #include "ImagingModes.h"
 #include "callbacks.h"
