@@ -1,5 +1,7 @@
 #pragma once
 
+#include <cstdint>
+
 BOOL APIENTRY DllMain(HMODULE, DWORD, LPVOID);
 
 //!
