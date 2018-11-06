@@ -22,10 +22,13 @@ XonoVIEW uses functionality provided by the Ulterius library, and was tested on 
 #### Usage
 
 The [provided pre-built DLL][xonoview-dll] can be [imported in LabVIEW][labview-howto].
-You will need to place it in a folder with all the DLLs provided as part of Ulterius.
+Please note that the Sonix SDK should be accessible by your system when running LabVIEW.
+We recommend installing it under `C:/Program Files (x86)/sdk610` and [adding its `bin`
+sub-folder to your `PATH` environment variable][win-env].
 
 [xonoview-dll]: ./lib/xonoview.dll
 [labview-howto]: ./doc/labview.md
+[win-env]: https://docs.microsoft.com/en-us/windows/desktop/procthread/environment-variables
 
 #### Extending XonoVIEW
 
@@ -40,6 +43,10 @@ build directory:
 cmake <path-to-xonoview-source-code>
 cmake --build . --config Release
 ```
+
+The XonoVIEW CMake configuration files will be able to locate the needed Ulterius components
+provided the Sonix SDK is installed in the recommended location on your computer (see the Usage
+section above).
 
 [xonoview-api]: ./api/xonoview.h
 [xonoview-howto]: ./doc/build.md
