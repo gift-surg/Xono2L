@@ -1,4 +1,4 @@
-#include "StdAfx.h"
+#include "stdafx.h"
 #include "labview_dll.h"
 #include "b_mode_frame.h"
 #include "ImagingModes.h"
