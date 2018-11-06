@@ -1,5 +1,14 @@
 cmake_minimum_required(VERSION 2.8)
 project(XonoVIEW)
+
+# Guard against 64-bit builds
+if(NOT WIN32)
+    message(FATAL_ERROR "XonoVIEW is supported on Windows only")
+endif()
+if(${CMAKE_GENERATOR} MATCHES "Win64")
+    message(FATAL_ERROR "XonoVIEW is supported in 32-bit only")
+endif()
+
 include_directories(
     ${CMAKE_SOURCE_DIR}/include
     ${CMAKE_SOURCE_DIR}/api
