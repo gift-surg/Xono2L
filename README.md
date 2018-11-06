@@ -1,7 +1,8 @@
 # XonoVIEW
 
-XonoVIEW is a [LabVIEW][labview]-compatible wrapper around Ulterius, a proprietary software development kit provided
-for use with [Sonix ultrasound systems][sonix].
+XonoVIEW is a [LabVIEW][labview]-compatible wrapper around the Ulterius library, which is part of
+the Sonix SDK, a proprietary software development kit provided for use with
+[Sonix ultrasound systems][sonix].
 
 [labview]: https://www.ni.com/labview
 [sonix]: https://www.bkmedical.com/
@@ -11,13 +12,21 @@ for use with [Sonix ultrasound systems][sonix].
 
 #### Dependencies
 
-XonoVIEW uses functionality provided by the Ulterius library, and was tested on a platform with:
+XonoVIEW uses functionality provided by the Ulterius library.
+Ulterius is the only run-time dependency if you're using the [pre-built DLL][xonoview-dll].
+
+XonoVIEW was tested on a platform with:
 
 - Windows 10 version **TODO**
-- Microsoft Visual Studio version **TODO**
-- GCC version **TODO**, using C++11 as the standard **TODO**
-- Sonix SDK (Ulterius) version 6.1.0
 - LabVIEW version **TODO**
+- Sonix SDK (Ulterius) version 6.1.0
+
+It was built on a platform with:
+
+- Microsoft Visual Studio Community 2017 version 15.8.9
+- Sonix SDK (Ulterius) version 6.1.0
+- CMake version 3.12.4
+- Windows 10 version 1803
 
 #### Usage
 
