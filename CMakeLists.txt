@@ -19,6 +19,7 @@ find_package(Ulterius REQUIRED)
 include_directories(
     ${CMAKE_SOURCE_DIR}/include
     ${CMAKE_SOURCE_DIR}/api
+    ${Ulterius_INCLUDE_DIR}
 )
 
 set(XONOVIEW_HEADERS
@@ -45,4 +46,7 @@ set(LIBRARY_NAME xonoview)
 
 add_library(${LIBRARY_NAME}
     ${XONOVIEW_SOURCES} ${XONOVIEW_HEADERS}
+)
+target_link_libraries(${LIBRARY_NAME}
+    ${Ulterius_LIBRARY}
 )
