@@ -9,6 +9,9 @@ if(${CMAKE_GENERATOR} MATCHES "Win64")
     message(FATAL_ERROR "XonoVIEW is supported in 32-bit only")
 endif()
 
+# Activate CMake find scripts
+list(APPEND CMAKE_PREFIX_PATH ${CMAKE_SOURCE_DIR}/cmake)
+
 # Try to localte Ulterius library
 find_package(Ulterius REQUIRED)
 
