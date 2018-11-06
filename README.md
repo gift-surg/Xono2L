@@ -33,7 +33,13 @@ Please refer to the docstrings in the [DLL API specification][xonoview-api] for 
 available.
 You can extend the DLL API by adding new functions that can subsequently be
 [imported in LabVIEW][labview-howto].
-In this process the DLL will need to be [re-built][xonoview-howto].
+In this process the DLL will need to be built by running the following CMake commands from within your
+build directory:
+
+```bash
+cmake <path-to-xonoview-source-code>
+cmake --build . --config Release
+```
 
 [xonoview-api]: ./api/xonoview.h
 [xonoview-howto]: ./doc/build.md
