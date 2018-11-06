@@ -44,7 +44,7 @@ set(XONOVIEW_SOURCES
 # Build DLL
 set(LIBRARY_NAME xonoview)
 
-add_library(${LIBRARY_NAME}
+add_library(${LIBRARY_NAME} SHARED
     ${XONOVIEW_SOURCES} ${XONOVIEW_HEADERS}
 )
 target_link_libraries(${LIBRARY_NAME}
