@@ -9,10 +9,12 @@ if(${CMAKE_GENERATOR} MATCHES "Win64")
     message(FATAL_ERROR "XonoVIEW is supported in 32-bit only")
 endif()
 
+# Set build parts
 include_directories(
     ${CMAKE_SOURCE_DIR}/include
     ${CMAKE_SOURCE_DIR}/api
 )
+
 set(XONOVIEW_HEADERS
     ${CMAKE_SOURCE_DIR}/include/data_buffer.h
     ${CMAKE_SOURCE_DIR}/include/b_mode_frame.h
@@ -31,7 +33,10 @@ set(XONOVIEW_SOURCES
     ${CMAKE_SOURCE_DIR}/src/callbacks.cpp
     ${CMAKE_SOURCE_DIR}/api/xonoview.cpp
 )
+
+# Build DLL
 set(LIBRARY_NAME xonoview)
+
 add_library(${LIBRARY_NAME}
     ${XONOVIEW_SOURCES} ${XONOVIEW_HEADERS}
 )
