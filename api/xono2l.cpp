@@ -1,5 +1,5 @@
 #include "stdafx.h"
-#include "xonoview.h"
+#include "xono2l.h"
 #include "b_mode_frame.h"
 #include "ImagingModes.h"
 #include "callbacks.h"
