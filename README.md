@@ -35,7 +35,7 @@ Please note that the Sonix SDK should be accessible by your system when running 
 We recommend installing it under `C:/Program Files (x86)/sdk610` and [adding its `bin`
 sub-folder to your `PATH` environment variable][win-env].
 
-[xono2L-dll]: ./lib/xono2L.dll
+[xono2L-dll]: https://github.com/gift-surg/Xono2L/releases
 [labview-howto]: ./doc/labview.md
 [win-env]: https://docs.microsoft.com/en-us/windows/desktop/procthread/environment-variables
 
