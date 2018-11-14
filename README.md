@@ -58,7 +58,6 @@ provided the Sonix SDK is installed in the recommended location on your computer
 section above).
 
 [xono2L-api]: ./api/xono2L.h
-[xono2L-howto]: ./doc/build.md
 
 ### Limitations
 
