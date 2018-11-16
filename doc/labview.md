@@ -15,30 +15,55 @@ Please see the [demo VI][demo-vi] for an example.
 
 Import the `start_acquisition` API function:
 
-![alt text][start]
+![alt text][start_import]
 
-[start]: ./res/start.png "Importing the acquisition starter function into LabVIEW"
+[start_import]: ./res/start_import.png "Importing the acquisition starter function into LabVIEW"
+
+Set its input and output parameters:
+
+![alt text][start_params]
+
+[start_params]: ./res/start_params.pnt "Parameters of the acquisition starter function"
 
 ## Stopping the acquisition
 
 Import the `stop_acquisition` API function:
 
-![alt text][stop]
+![alt text][stop_import]
 
-[stop]: ./res/stop.png "Importing the acquisition stopper function into LabVIEW"
+[stop_import]: ./res/stop_import.png "Importing the acquisition stopper function into LabVIEW"
+
+Set its input and output parameters:
+
+![alt text][stop_params]
+
+[stop_params]: ./res/stop_params.png "Parameters of the acquisition stopper function"
 
 ## Checking the acquisition status
 
 Import the `is_acquiring` API function:
 
-![alt text][status]
+![alt text][status_import]
 
-[status]: ./res/status.png
+[status_import]: ./res/status_import.png
+
+Set its input and output parameters:
+
+![alt text][status_params]
+
+[status_params]: ./res/status_params.png
 
 ## Capturing the ultrasound video frames
 
 Import the `get_data` API function:
 
-![alt text][capture]
+![alt text][capture_import]
 
-[capture]: ./res/capture.png
+[capture_import]: ./res/capture_import.png
+
+Set its input and output parameters:
+
+![alt text][capture_params]
+
+[capture_params]: ./res/capture_params.png
+
