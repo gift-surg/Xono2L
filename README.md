@@ -17,16 +17,10 @@ Ulterius is the only run-time dependency if you're using the [pre-built DLL][xon
 
 Xono2L was tested on a platform with:
 
-- Windows 10 version **TODO**
-- LabVIEW version **TODO**
-- Sonix SDK (Ulterius) version 6.1.0
-
-It was built on a platform with:
-
-- Microsoft Visual Studio Community 2017 version 15.8.9
-- Sonix SDK (Ulterius) version 6.1.0
-- CMake version 3.12.4
 - Windows 10 version 1803
+- LabVIEW version 17.0.1f1 (32-bit)
+- CMake version 3.12.4
+- Sonix SDK (Ulterius) version 6.1.0
 
 ### Usage
 
