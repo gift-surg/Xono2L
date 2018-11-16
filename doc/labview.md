@@ -23,7 +23,7 @@ Set its input and output parameters:
 
 ![alt text][start_params]
 
-[start_params]: ./res/start_params.pnt "Parameters of the acquisition starter function"
+[start_params]: ./res/start_params.png "Parameters of the acquisition starter function"
 
 ## Stopping the acquisition
 
