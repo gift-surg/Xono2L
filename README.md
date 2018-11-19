@@ -1,15 +1,17 @@
-<a href="http://www.youtube.com/watch?feature=player_embedded&v=z0DbbX2aZpU"
- target="_blank"><img src="http://img.youtube.com/vi/z0DbbX2aZpU/0.jpg"
- alt="IMAGE ALT TEXT HERE" width="480" height="360" border="10" /></a>
-
 # Xono2L
 
 Xono2L is a [LabVIEW][labview]-compatible wrapper around the Ulterius library, which is part of
 the Sonix SDK, a proprietary software development kit provided for use with
 [Sonix ultrasound systems][sonix].
+Please see this YouTube video for a screencast showing a [demo VI][demo-vi] with Xono2L in action:
+
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=z0DbbX2aZpU"
+ target="_blank"><img src="http://img.youtube.com/vi/z0DbbX2aZpU/0.jpg"
+ alt="IMAGE ALT TEXT HERE" width="480" height="360" border="10" /></a>
 
 [labview]: https://www.ni.com/labview
 [sonix]: https://www.bkmedical.com/
+[demo-vi]: vi/demo.vi
 
 
 ## Getting started
