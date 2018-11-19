@@ -57,7 +57,7 @@ The Xono2L CMake configuration files will be able to locate the needed Ulterius 
 provided the Sonix SDK is installed in the recommended location on your computer (see the Usage
 section above).
 
-[xono2L-api]: ./api/xono2L.h
+[xono2L-api]: api/xono2L.h
 
 ### Limitations
 
