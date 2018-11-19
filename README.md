@@ -77,7 +77,7 @@ Copyright 2018 Xono2L Contributors
 
 ### Ulterius
 
-Ulterius is part of the Sonix SDK.
+Ulterius is part of the Sonix SDK, and **not included in this repository**.
 
 Copyright 2014 Ultrasonix Medical Corporation (now [BK Ultrasound][sonix])
 
