@@ -9,7 +9,11 @@ DLL API functions are imported into LabVIEW using the `Call Library Function Nod
 For this you will first need to let each such node know the path to your local copy of the Xono2L DLL.
 Then you will need to specify the input and output argument types.
 Finally you will need to connect them to LabVIEW input and output nodes of appropriate types.
-Please see the [demo VI][demo-vi] for an example.
+
+The sections below illustrate how to do all of this using the [demo VI][demo-vi] provided.
+[This YouTube video][xono2l-yt] demonstrates what to expect after completing all these steps.
+
+[xono2l-yt]: https://youtu.be/z0DbbX2aZpU
 
 ## Starting the acquisition
 
