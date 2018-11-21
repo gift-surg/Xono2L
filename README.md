@@ -19,7 +19,7 @@ Please see this YouTube video for a screencast showing a [demo VI][demo-vi] with
 ### Dependencies
 
 Xono2L uses functionality provided by the Ulterius library.
-Ulterius is the only run-time dependency if you're using the [pre-built DLL][xono2L-dll].
+Ulterius (Sonix SDK) is the only run-time dependency if you're using the [pre-built DLL][xono2L-dll].
 
 Xono2L was tested on a platform with:
 
