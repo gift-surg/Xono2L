@@ -1,6 +1,6 @@
 # Xono2L
 
-Xono2L is a [LabVIEW][labview]-compatible , extensible C++ API that supports the capture of live ultrasound streams.
+Xono2L is a [LabVIEW][labview]-compatible, extensible C++ API that supports the capture of live ultrasound streams.
 Xono2L links with the Ulterius library, which is part of the Sonix SDK, a proprietary software development kit
 provided for use with [Sonix ultrasound systems][sonix].
 Please see this YouTube video for a screencast showing a [demo VI][demo-vi] with Xono2L in action:
