@@ -13,7 +13,9 @@ Finally you will need to connect them to LabVIEW input and output nodes of appro
 The sections below illustrate how to do all of this using the [demo VI][demo-vi] provided.
 This animated image illustrates what to expect after completing all these steps:
 
-<img src="res/xono2l.gif" align="middle" width=480>
+![alt text][labview-with-xono2l]
+
+[labview-with-xono2l]: ./res/xono2l.gif
 
 ## Starting the acquisition
 
