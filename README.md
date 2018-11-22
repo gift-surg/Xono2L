@@ -5,7 +5,7 @@ Xono2L links with the Ulterius library, which is part of the Sonix SDK, a propri
 provided for use with [Sonix ultrasound systems][sonix].
 The following animated image shows a [demo VI][demo-vi] with Xono2L in action:
 
-<img src="doc/res/xono2l.gif" align="center" width=480>
+<img src="doc/res/xono2l.gif" align="middle" width=480>
 
 [labview]: https://www.ni.com/labview
 [sonix]: https://www.bkmedical.com/
