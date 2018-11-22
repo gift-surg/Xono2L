@@ -11,9 +11,9 @@ Then you will need to specify the input and output argument types.
 Finally you will need to connect them to LabVIEW input and output nodes of appropriate types.
 
 The sections below illustrate how to do all of this using the [demo VI][demo-vi] provided.
-[This YouTube video][xono2l-yt] demonstrates what to expect after completing all these steps.
+This animated image illustrates what to expect after completing all these steps:
 
-[xono2l-yt]: https://youtu.be/z0DbbX2aZpU
+<img src="res/xono2l.gif" align="center" width=480>
 
 ## Starting the acquisition
 
