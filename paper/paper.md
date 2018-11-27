@@ -65,11 +65,13 @@ Xono2L's API is flexible and can be extended to cover a broad range of use cases
 # Acknowledgements
 
 This work was supported through an Innovative Engineering for Health award by the [Wellcome Trust][wt]
-[WT101957], the [Engineering and Physical Sciences Research Council (EPSRC)][epsrc] [NS/A000027/1 and EP/N021177/1]
-and a [National Institute for Health Research][nihr] Biomedical Research Centre UCLH/UCL High Impact Initiative.
+[WT101957], the [Engineering and Physical Sciences Research Council (EPSRC)][epsrc] [NS/A000027/1 and EP/N021177/1],
+a [National Institute for Health Research][nihr] Biomedical Research Centre UCLH/UCL High Impact Initiative,
+and the [Wellcome/EPSRC Centre for Medical Engineering (CME)][cme].
 
 [wt]: https://wellcome.ac.uk/
 [epsrc]: https://epsrc.ukri.org/
 [nihr]: https://www.nihr.ac.uk/
+[cme]: https://medicalengineering.org.uk/
 
 # References
