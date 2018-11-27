@@ -31,7 +31,7 @@ affiliations:
    index: 3
  - name: Wellcome/EPSRC Centre for Interventional and Surgical Sciences, University College London
    index: 4
-date:
+date: 27 November 2018
 bibliography: paper.bib
 ---
 
