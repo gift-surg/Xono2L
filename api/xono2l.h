@@ -52,3 +52,9 @@ bool get_data(
 //!
 _declspec (dllexport)
 bool set_focus_depth(float focus_depth) noexcept;
+
+//!
+//! \brief Get current focus depth (in millimetres)
+//!
+_declspec (dllexport)
+float get_focus_depth() noexcept;

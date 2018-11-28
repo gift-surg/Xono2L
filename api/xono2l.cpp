@@ -197,3 +197,27 @@ bool set_focus_depth(float focus_depth) noexcept
 		return false;
 	}
 }
+
+_declspec (dllexport)
+float get_focus_depth() noexcept
+{
+	try
+	{
+		if (!is_acquiring())
+			return false;
+
+		UlteriusSingleton& ult = UlteriusSingleton::get_instance();
+		int focus_depth;
+		ult.getParamValue("focus depth", focus_depth);
+		return focus_depth / 1000.0;
+	}
+	catch (...)
+	{
+		/* We use this evil design only with the intention of not causing
+		 * the LabVIEW client to crash. This try-catch block should better
+		 * be replaced by an appropriate exception handling mechanism
+		 * interplayed between C++ and LabVIEW.
+		 */
+		return false;
+	}
+}
