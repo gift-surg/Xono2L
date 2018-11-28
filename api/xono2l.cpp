@@ -175,15 +175,23 @@ bool get_data(uint8_t *data, uint32_t *width, uint32_t *height,
 }
 
 _declspec (dllexport)
-bool set_focus_depth(float focus_depth) noexcept
+bool set_focus_depth(float *focus_depth) noexcept
 {
 	try
 	{
 		if (!is_acquiring())
 			return false;
 
+		float factor = 1000.0;
+		char param_name[] = "focus depth";
+
 		UlteriusSingleton& ult = UlteriusSingleton::get_instance();
-		ult.setParamValue("focus depth", (uint32_t)(focus_depth * 1000));
+		if (!ult.setParamValue(param_name, (uint32_t)(*focus_depth * factor)))
+			return false;
+
+		int _focus_depth = 0;
+		if (ult.getParamValue(param_name, _focus_depth))
+			*focus_depth = _focus_depth / factor;
 
 		return true;
 	}

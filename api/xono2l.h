@@ -49,6 +49,9 @@ bool get_data(
 //!
 //! \brief Set focus depth to specified value (specified in
 //! millimetres)
+//! \param focus_depth this is both an input and output
+//! parameter: the new value is saved here as well, only if
+//! it can be obtained from the device
 //!
 _declspec (dllexport)
-bool set_focus_depth(float focus_depth) noexcept;
+bool set_focus_depth(float *focus_depth) noexcept;
