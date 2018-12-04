@@ -9,19 +9,19 @@ tags:
 authors:
   - name: Dzhoshkun Ismail Shakir
     orcid: 0000-0003-3009-4178
-    affiliation: 1,2,3
+    affiliation: "1, 2, 3"
   - name: Sunish Mathews
     orcid: 0000-0002-2289-3669
-    affiliation: 3,4
+    affiliation: "3, 4"
   - name: Wenfeng Xia
     orcid: 0000-0002-1147-6886
-    affiliation: 1,3
+    affiliation: "1, 3"
   - name: Adrien Desjardins
     orcid: 0000-0002-1932-1811
-    affiliation: 3,4
+    affiliation: "3, 4"
   - name: Tom Vercauteren
     orcid: 0000-0003-1794-0456
-    affiliation: 1,3
+    affiliation: "1, 3"
 affiliations:
  - name: School of Biomedical Engineering and Imaging Sciences, King's College London
    index: 1
