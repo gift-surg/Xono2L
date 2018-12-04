@@ -7,10 +7,10 @@ tags:
   - LabVIEW
   - Windows
 authors:
-  - name: Dzhoshkun Ismail Shakir
+  - name: Dzhoshkun Ismail Shakir[^*]
     orcid: 0000-0003-3009-4178
     affiliation: "1, 2, 3"
-  - name: Sunish Mathews
+  - name: Sunish Mathews[^*]
     orcid: 0000-0002-2289-3669
     affiliation: "3, 4"
   - name: Wenfeng Xia
@@ -34,6 +34,8 @@ affiliations:
 date: 27 November 2018
 bibliography: paper.bib
 ---
+
+[^*]: These authors contributed equally to this paper.
 
 # Summary
 
