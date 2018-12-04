@@ -23,7 +23,7 @@ authors:
     orcid: 0000-0003-1794-0456
     affiliation: "1, 3"
 affiliations:
- - name: School of Biomedical Engineering and Imaging Sciences, King's College London
+ - name: "School of Biomedical Engineering and Imaging Sciences, King's College London"
    index: 1
  - name: University College London Hospitals NHS Foundation Trust
    index: 2
