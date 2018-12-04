@@ -40,9 +40,9 @@ Dzhoshkun I. Shakir and Sunish Mathews contributed equally to this work.
 # Summary
 
 Research in advanced sonographic real-time clinical imaging methods such as ultrasonic needle tracking
-[@Xia2018JoVE,@Xia2016MICCAI,@Guo2014SPIE,@Mung2011MICCAI,@nikolov2008precision] is facilitated by the
+[@Xia2018JoVE;@Xia2016MICCAI;@Guo2014SPIE;@Mung2011MICCAI;@nikolov2008precision] is facilitated by the
 [LabVIEW][labview] rapid system-design and development environment.
-This research and associated clinical translational developments [@Xia2016MedPhys,@xia2017looking,@Xia2017MICCAI]
+This research and associated clinical translational developments [@Xia2016MedPhys;@xia2017looking;@Xia2017MICCAI]
 involve the capture and processing of live ultrasound data streams with LabVIEW.
 
 Existing open-source software packages such as Plus [@Lasso2014TBME] and NifTK [@Clarkson2015IJCARS] support
