@@ -27,9 +27,9 @@ affiliations:
    index: 1
  - name: University College London Hospitals NHS Foundation Trust
    index: 2
- - name: Department of Medical Physics and Biomedical Engineering, University College London
+ - name: "Department of Medical Physics and Biomedical Engineering, University College London"
    index: 3
- - name: Wellcome/EPSRC Centre for Interventional and Surgical Sciences, University College London
+ - name: "Wellcome/EPSRC Centre for Interventional and Surgical Sciences, University College London"
    index: 4
 date: 27 November 2018
 bibliography: paper.bib
