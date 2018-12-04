@@ -9,27 +9,27 @@ tags:
 authors:
   - name: Dzhoshkun Ismail Shakir[^*]
     orcid: 0000-0003-3009-4178
-    affiliation: 1,2,3
+    affiliation: "1, 2, 3"
   - name: Sunish Mathews[^*]
     orcid: 0000-0002-2289-3669
-    affiliation: 3,4
+    affiliation: "3, 4"
   - name: Wenfeng Xia
     orcid: 0000-0002-1147-6886
-    affiliation: 1,3
+    affiliation: "1, 3"
   - name: Adrien Desjardins
     orcid: 0000-0002-1932-1811
-    affiliation: 3,4
+    affiliation: "3, 4"
   - name: Tom Vercauteren
     orcid: 0000-0003-1794-0456
-    affiliation: 1,3
+    affiliation: "1, 3"
 affiliations:
- - name: School of Biomedical Engineering and Imaging Sciences, King's College London
+ - name: "School of Biomedical Engineering and Imaging Sciences, King's College London"
    index: 1
  - name: University College London Hospitals NHS Foundation Trust
    index: 2
- - name: Department of Medical Physics and Biomedical Engineering, University College London
+ - name: "Department of Medical Physics and Biomedical Engineering, University College London"
    index: 3
- - name: Wellcome/EPSRC Centre for Interventional and Surgical Sciences, University College London
+ - name: "Wellcome/EPSRC Centre for Interventional and Surgical Sciences, University College London"
    index: 4
 date: 27 November 2018
 bibliography: paper.bib
@@ -64,7 +64,12 @@ Xono2L's API is flexible and can be extended to cover a broad range of use cases
 
 # Acknowledgements
 
-This work is supported by the [Wellcome Trust][wt] [WT101957; 203145Z/16/Z and 203148/Z/16/Z] and the [Engineering and Physical Sciences Research Council (EPSRC)][epsrc] [NS/A000027/1; NS/A000050/1; NS/A000049/1 and EP/N021177/1], notably through the [GIFT-Surg][gift-surg] Innovative Engineering for Health award, the [Wellcome/EPSRC Centre for Interventional and Surgical Sciences (WEISS)][weiss] and the [Wellcome/EPSRC Centre for Medical Engineering (CME)][cme]. This work is also supported by the [National Institute for Health Research][nihr] Biomedical Research Centre UCLH/UCL High Impact Initiative.
+This work is supported by the [Wellcome Trust][wt] [WT101957; 203145Z/16/Z and 203148/Z/16/Z] and the [Engineering and
+Physical Sciences Research Council (EPSRC)][epsrc] [NS/A000027/1; NS/A000050/1; NS/A000049/1 and EP/N021177/1], notably
+through the [GIFT-Surg][gift-surg] Innovative Engineering for Health award, the [Wellcome/EPSRC Centre for
+Interventional and Surgical Sciences (WEISS)][weiss] and the [Wellcome/EPSRC Centre for Medical Engineering (CME)][cme].
+This work is also supported by the [National Institute for Health Research][nihr] Biomedical Research Centre UCLH/UCL
+High Impact Initiative.
 
 [wt]: https://wellcome.ac.uk/
 [epsrc]: https://epsrc.ukri.org/
