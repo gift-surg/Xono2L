@@ -1,1 +1,5 @@
-
+test:
+  script:
+    - dir
+  tags:
+    - gift-hopper  
