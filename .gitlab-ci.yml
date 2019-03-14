@@ -1,5 +1,9 @@
-test:
+build:
   script:
+    - mkdir build-ulterius
+    - cd build-ulterius
+    - cmake ..
+    - cmake --build . --config Release
     - dir
   tags:
     - gift-hopper  
