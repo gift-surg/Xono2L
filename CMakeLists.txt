@@ -12,7 +12,7 @@ endif()
 # Activate CMake find scripts
 list(APPEND CMAKE_PREFIX_PATH ${CMAKE_SOURCE_DIR}/cmake)
 
-# Try to localte Ulterius library
+# Try to locale Ulterius library
 find_package(Ulterius REQUIRED)
 
 # Set build parts
