@@ -4,6 +4,7 @@ build:
     - cd build-ulterius
     - cmake ..
     - cmake --build . --config Release
-    - dir
+    - dir Win32
+    - dir Release\xono2l.dll
   tags:
     - gift-hopper  
