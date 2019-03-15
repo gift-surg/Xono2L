@@ -20,6 +20,9 @@ list(APPEND XONO2L_INCLUDE_DIRS
     ${Ulterius_INCLUDE_DIR}
 )
 
+# Suffix indicating what the built library supports
+set(${FILE_SUFFIX} "")
+
 # Activate source code based on user options
 if(${USE_ULTERIUS})
     add_definitions(-DUSE_ULTERIUS)
@@ -30,6 +33,8 @@ if(${USE_ULTERIUS})
     list(APPEND XONO2L_INCLUDE_DIRS
         ${Ulterius_INCLUDE_DIR}
     )
+
+    string(CONCAT FILE_SUFFIX ${FILE_SUFFIX} "-usx")
 endif()
 
 # Set build parts
@@ -55,7 +60,7 @@ set(XONO2L_SOURCES
 )
 
 # Build DLL
-set(LIBRARY_NAME xono2l)
+set(LIBRARY_NAME xono2l${FILE_SUFFIX})
 
 add_library(${LIBRARY_NAME} SHARED
     ${XONO2L_SOURCES} ${XONO2L_HEADERS}
