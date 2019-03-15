@@ -1,9 +1,9 @@
 variables:
   ulterius_tag: usx
   epiphansdk_tag: epi
-  epiphansdk_dir: C:\Program Files\Epiphan\epiphan_sdk-3.30.3.0007
-  epiphandrv32_dir: C:\Program Files (x86)\Epiphan\epiphan-usb-pci-drivers-windows-32bit-3.30.7.0008
-  epiphandrv64_dir: C:\Program Files\Epiphan\epiphan-usb-pci-drivers-windows-64bit-3.30.7.0008
+  epiphansdk_dir: C:/Program Files/Epiphan/epiphan_sdk-3.30.3.0007
+  epiphandrv32_dir: C:/Program Files (x86)/Epiphan/epiphan-usb-pci-drivers-windows-32bit-3.30.7.0008
+  epiphandrv64_dir: C:/Program Files/Epiphan/epiphan-usb-pci-drivers-windows-64bit-3.30.7.0008
 
 stages:
   - build
@@ -23,9 +23,6 @@ build-against-ulterius:
 build-against-epiphan-sdk:
   stage: build
   script:
-    - dir "%epiphansdk_dir%"
-    - dir "%epiphandrv32_dir%"
-    - dir "%epiphandrv64_dir%"
     - mkdir build-%epiphansdk_tag%
     - cd build-%epiphansdk_tag%
     - cmake -D USE_EPIPHAN:BOOL=ON ..
