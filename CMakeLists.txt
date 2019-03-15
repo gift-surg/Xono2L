@@ -15,20 +15,25 @@ list(APPEND CMAKE_PREFIX_PATH ${CMAKE_SOURCE_DIR}/cmake)
 # User options
 option(USE_ULTERIUS "Link against Ulterius, and activate functionality" OFF)
 
-# Activate source code based on user options
-if(${USE_ULTERIUS})
-    add_definitions(-DUSE_ULTERIUS)
-endif()
-
-# Try to locale Ulterius library
-find_package(Ulterius REQUIRED)
-
-# Set build parts
-include_directories(
-    ${CMAKE_SOURCE_DIR}/include
+list(APPEND XONO2L_INCLUDE_DIRS
     ${CMAKE_SOURCE_DIR}/api
     ${Ulterius_INCLUDE_DIR}
 )
+
+# Activate source code based on user options
+if(${USE_ULTERIUS})
+    add_definitions(-DUSE_ULTERIUS)
+
+    # Try to locale Ulterius library
+    find_package(Ulterius REQUIRED)
+
+    list(APPEND XONO2L_INCLUDE_DIRS
+        ${Ulterius_INCLUDE_DIR}
+    )
+endif()
+
+# Set build parts
+include_directories(${XONO2L_INCLUDE_DIRS})
 
 set(XONO2L_HEADERS
     ${CMAKE_SOURCE_DIR}/include/data_buffer.h
