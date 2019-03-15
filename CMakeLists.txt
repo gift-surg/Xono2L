@@ -19,6 +19,7 @@ list(APPEND XONO2L_INCLUDE_DIRS
     ${CMAKE_SOURCE_DIR}/include
     ${CMAKE_SOURCE_DIR}/api
 )
+set(XONO2L_LINK_LIBS "")
 
 # Suffix indicating what the built library supports
 set(${FILE_SUFFIX} "")
@@ -33,6 +34,9 @@ if(${USE_ULTERIUS})
     list(APPEND XONO2L_INCLUDE_DIRS
         ${Ulterius_INCLUDE_DIR}
     )
+	list(APPEND XONO2L_LINK_LIBS
+		${Ulterius_LIBRARY}
+	)
 
     string(CONCAT FILE_SUFFIX ${FILE_SUFFIX} "-usx")
 endif()
@@ -68,5 +72,5 @@ add_library(${LIBRARY_NAME} SHARED
     ${XONO2L_SOURCES} ${XONO2L_HEADERS}
 )
 target_link_libraries(${LIBRARY_NAME}
-    ${Ulterius_LIBRARY}
+    ${XONO2L_LINK_LIBS}
 )
