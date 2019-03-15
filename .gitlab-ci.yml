@@ -10,8 +10,8 @@ build-against-ulterius:
   script:
     - mkdir build-%ulterius_tag%
     - cd build-%ulterius_tag%
-    - cmake ..
-    - cmake --build . --config Release -D USE_ULTERIUS:BOOL=ON
+    - cmake -D USE_ULTERIUS:BOOL=ON ..
+    - cmake --build . --config Release
     - dir
     - dir Release\xono2l-%ulterius_tag%.dll
   tags:
