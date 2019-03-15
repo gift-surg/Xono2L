@@ -3,8 +3,6 @@
 #include "ulterius_controller.h"
 #include <thread>
 
-uDataDesc data_desc;
-
 BOOL APIENTRY  DllMain(HMODULE hModule, DWORD ul_reason_for_call, LPVOID lpReserved)
 {
 	switch (ul_reason_for_call)
