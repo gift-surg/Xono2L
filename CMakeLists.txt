@@ -16,8 +16,8 @@ list(APPEND CMAKE_PREFIX_PATH ${CMAKE_SOURCE_DIR}/cmake)
 option(USE_ULTERIUS "Link against Ulterius, and activate functionality" OFF)
 
 list(APPEND XONO2L_INCLUDE_DIRS
+    ${CMAKE_SOURCE_DIR}/include
     ${CMAKE_SOURCE_DIR}/api
-    ${Ulterius_INCLUDE_DIR}
 )
 
 # Suffix indicating what the built library supports
