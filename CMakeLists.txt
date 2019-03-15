@@ -14,6 +14,7 @@ list(APPEND CMAKE_PREFIX_PATH ${CMAKE_SOURCE_DIR}/cmake)
 
 # User options
 option(USE_ULTERIUS "Link against Ulterius, and activate functionality" OFF)
+option(USE_EPIPHAN "Link against Epiphan SDK, and activate functionality" OFF)
 
 list(APPEND XONO2L_INCLUDE_DIRS
     ${CMAKE_SOURCE_DIR}/include
@@ -39,6 +40,22 @@ if(${USE_ULTERIUS})
 	)
 
     string(CONCAT FILE_SUFFIX ${FILE_SUFFIX} "-usx")
+endif()
+
+if (${USE_EPIPHAN})
+	add_definitions(-DUSE_EPIPHAN)
+
+	# Try to locate Epiphan SDK
+	find_package(EpiphanSDK REQUIRED)
+
+	list(APPEND XONO2L_INCLUDE_DIRS
+		${EpiphanSDK_INCLUDE_DIR}
+	)
+	list(APPEND XONO2L_LINK_LIBS
+		${EpiphanSDK_LIBRARY}
+	)
+
+	string(CONCAT FILE_SUFFIX ${FILE_SUFFIX} "-epi")
 endif()
 
 # Set build parts
