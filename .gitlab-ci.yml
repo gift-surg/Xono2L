@@ -1,6 +1,6 @@
 variables:
-  ULTERIUS_TAG: usx
-  EPIPHANSDK_TAG: epi
+  ulterius_tag: usx
+  epiphansdk_tag: epi
 
 stages:
   - build
@@ -13,7 +13,7 @@ build-against-ulterius:
     - cmake ..
     - cmake --build . --config Release
     - dir
-    - dir Release/xono2l-$ULTERIUS_TAG.dll
+    - dir Release/xono2l-%ulterius_tag%.dll
   tags:
     - gift-hopper  
 
@@ -25,4 +25,4 @@ build-against-epiphan-sdk:
     - cmake ..
     - cmake --build . --config Release
     - dir
-    - dir Release/xono2l-$EPIPHANSDK_TAG.dll
+    - dir Release/xono2l-%epiphansdk_tag%.dll
