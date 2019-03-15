@@ -46,13 +46,13 @@ if (${USE_EPIPHAN})
 	add_definitions(-DUSE_EPIPHAN)
 
 	# Try to locate Epiphan SDK
-	find_package(EpiphanSDK REQUIRED)
+	add_subdirectory(cmake/epiphansdk)
 
 	list(APPEND XONO2L_INCLUDE_DIRS
-		${EpiphanSDK_INCLUDE_DIR}
+		${EpiphanSDK_INCLUDE_DIRS}
 	)
 	list(APPEND XONO2L_LINK_LIBS
-		${EpiphanSDK_LIBRARY}
+		${EpiphanSDK_LIBS}
 	)
 
 	string(CONCAT FILE_SUFFIX ${FILE_SUFFIX} "-epi")
