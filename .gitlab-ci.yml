@@ -28,7 +28,7 @@ build-against-epiphan-sdk:
     - dir "%epiphandrv64_dir%"
     - mkdir build-%epiphansdk_tag%
     - cd build-%epiphansdk_tag%
-    - cmake ..
+    - cmake -D USE_EPIPHAN:BOOL=ON ..
     - cmake --build . --config Release
     - dir
     - dir Release\xono2l-%epiphansdk_tag%.dll
