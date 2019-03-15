@@ -13,6 +13,7 @@ build-against-ulterius:
     - cmake ..
     - cmake --build . --config Release
     - dir
+    - rename Release\xono2l.dll Release\xono2l-%ulterius_tag%.dll
     - dir Release\xono2l-%ulterius_tag%.dll
   tags:
     - gift-hopper
