@@ -13,7 +13,7 @@ build-against-ulterius:
     - cmake ..
     - cmake --build . --config Release
     - dir
-    - dir Release/xono2l-%ulterius_tag%.dll
+    - dir Release\xono2l-%ulterius_tag%.dll
   tags:
     - gift-hopper
 
@@ -25,6 +25,6 @@ build-against-epiphan-sdk:
     - cmake ..
     - cmake --build . --config Release
     - dir
-    - dir Release/xono2l-%epiphansdk_tag%.dll
+    - dir Release\xono2l-%epiphansdk_tag%.dll
   tags:
     - gift-hopper
