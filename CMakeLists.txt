@@ -46,6 +46,7 @@ set(XONO2L_HEADERS
     ${CMAKE_SOURCE_DIR}/include/device_config.h
     ${CMAKE_SOURCE_DIR}/include/device_config_daemon.h
     ${CMAKE_SOURCE_DIR}/include/ulterius_singleton.h
+    ${CMAKE_SOURCE_DIR}/include/ulterius_controller.h
     ${CMAKE_SOURCE_DIR}/include/callbacks.h
     ${CMAKE_SOURCE_DIR}/api/xono2l.h
 )
@@ -55,6 +56,7 @@ set(XONO2L_SOURCES
     ${CMAKE_SOURCE_DIR}/src/device_config.cpp
     ${CMAKE_SOURCE_DIR}/src/device_config_daemon.cpp
     ${CMAKE_SOURCE_DIR}/src/ulterius_singleton.cpp
+    ${CMAKE_SOURCE_DIR}/src/ulterius_controller.cpp
     ${CMAKE_SOURCE_DIR}/src/callbacks.cpp
     ${CMAKE_SOURCE_DIR}/api/xono2l.cpp
 )
