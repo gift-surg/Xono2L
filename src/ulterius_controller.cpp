@@ -2,6 +2,8 @@
 
 #ifdef USE_ULTERIUS
 
+uDataDesc data_desc;
+
 
 bool UlteriusController::start_acquisition(const char *device_ident)
 {
