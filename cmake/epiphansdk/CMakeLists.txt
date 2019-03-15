@@ -34,7 +34,7 @@ SET(FrmGrab_HEADERS
     $ENV{EpiphanSDK_DIR}/epiphan/frmgrab/include/frmgrab.h
     )
 SET(FrmGrab_LIB
-    $ENV{EpiphanSDK_DIR}/epiphan/frmgrab/lib/linux/x86_64/libfrmgrab.a
+    $ENV{EpiphanSDK_DIR}/epiphan/frmgrab/lib/win/Win32/frmgrab.lib
     ) # CMAKE_CURRENT_SOURCE_DIR necessary because of tests linking to this
 
 # SLIB
@@ -145,12 +145,12 @@ SET(SLIB_SOURCES
     $ENV{EpiphanSDK_DIR}/opensource/slib/src/s_xml.c
     $ENV{EpiphanSDK_DIR}/opensource/slib/src/s_xmlp.c
     $ENV{EpiphanSDK_DIR}/opensource/slib/src/s_xmlp.h
-    $ENV{EpiphanSDK_DIR}/opensource/slib/src/unix/u_event.c
-    $ENV{EpiphanSDK_DIR}/opensource/slib/src/unix/u_furl.c
-    $ENV{EpiphanSDK_DIR}/opensource/slib/src/unix/u_futil.c
-    $ENV{EpiphanSDK_DIR}/opensource/slib/src/unix/u_mutex.c
-    $ENV{EpiphanSDK_DIR}/opensource/slib/src/unix/u_thread.c
-    $ENV{EpiphanSDK_DIR}/opensource/slib/src/unix/u_trace.c
+    $ENV{EpiphanSDK_DIR}/opensource/slib/src/win32/w_event.c
+    $ENV{EpiphanSDK_DIR}/opensource/slib/src/win32/w_furl.c
+    $ENV{EpiphanSDK_DIR}/opensource/slib/src/win32/w_futil.c
+    $ENV{EpiphanSDK_DIR}/opensource/slib/src/win32/w_mutex.c
+    $ENV{EpiphanSDK_DIR}/opensource/slib/src/win32/w_thread.c
+    $ENV{EpiphanSDK_DIR}/opensource/slib/src/win32/w_trace.c
     )
 SET(SLIB_LIB slib)
 ADD_LIBRARY(${SLIB_LIB} ${SLIB_HEADERS} ${SLIB_SOURCES})
