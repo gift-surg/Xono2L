@@ -24,7 +24,7 @@ BOOL APIENTRY  DllMain(HMODULE hModule, DWORD ul_reason_for_call, LPVOID lpReser
 }
 
 _declspec (dllexport)
-bool start_acquisition(const char *ip_address) noexcept
+bool start_acquisition(const char *device_ident) noexcept
 {
 	try
 	{
@@ -32,7 +32,7 @@ bool start_acquisition(const char *ip_address) noexcept
 			return false;
 
 		UlteriusSingleton& ult = UlteriusSingleton::get_instance();
-		if (!ult.connect(ip_address))
+		if (!ult.connect(device_ident))
 			return false;
 
 		if (!ult.selectMode(imagingMode::BMode))

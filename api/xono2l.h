@@ -5,16 +5,17 @@
 BOOL APIENTRY DllMain(HMODULE, DWORD, LPVOID);
 
 //!
-//! \brief Attempt to connect to an Ultrasonix machine at the
-//! specified IP address, and subsequently start a live
-//! acquisition
+//! \brief Attempt to connect to the device specified, and
+//! subsequently start a live acquisition
+//! \param device_ident either the IP address of an Ultrasonix
+//! machine or the port of an Epiphan frame-grabber
 //!
 //! \return true if no machine is connected, and a connection
 //! has been successfully established, and streaming started,
 //! false otherwise
 //!
 _declspec (dllexport)
-bool start_acquisition(const char *ip_address) noexcept;
+bool start_acquisition(const char *device_ident) noexcept;
 
 //!
 //! \brief Attempt to stop the current live acquisition
