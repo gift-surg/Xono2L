@@ -15,7 +15,7 @@ build-against-ulterius:
     - dir
     - dir Release/xono2l-%ulterius_tag%.dll
   tags:
-    - gift-hopper  
+    - gift-hopper
 
 build-against-epiphan-sdk:
   stage: build
@@ -26,3 +26,5 @@ build-against-epiphan-sdk:
     - cmake --build . --config Release
     - dir
     - dir Release/xono2l-%epiphansdk_tag%.dll
+  tags:
+    - gift-hopper
