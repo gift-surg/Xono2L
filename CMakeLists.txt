@@ -12,6 +12,14 @@ endif()
 # Activate CMake find scripts
 list(APPEND CMAKE_PREFIX_PATH ${CMAKE_SOURCE_DIR}/cmake)
 
+# User options
+option(USE_ULTERIUS "Link against Ulterius, and activate functionality" OFF)
+
+# Activate source code based on user options
+if(${USE_ULTERIUS})
+    add_definitions(-DUSE_ULTERIUS)
+endif()
+
 # Try to locale Ulterius library
 find_package(Ulterius REQUIRED)
 
