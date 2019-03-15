@@ -8,8 +8,8 @@ stages:
 build-against-ulterius:
   stage: build
   script:
-    - mkdir build-$ULTERIUS_TAG
-    - cd build-$ULTERIUS_TAG
+    - mkdir build-%ulterius_tag%
+    - cd build-%ulterius_tag%
     - cmake ..
     - cmake --build . --config Release
     - dir
@@ -20,8 +20,8 @@ build-against-ulterius:
 build-against-epiphan-sdk:
   stage: build
   script:
-    - mkdir build-$EPIPHANSDK_TAG
-    - cd build-$EPIPHANSDK_TAG
+    - mkdir build-%epiphansdk_tag%
+    - cd build-%epiphansdk_tag%
     - cmake ..
     - cmake --build . --config Release
     - dir
