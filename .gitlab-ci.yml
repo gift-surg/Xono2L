@@ -1,10 +1,28 @@
-build:
+variables:
+  ULTERIUS_TAG: usx
+  EPIPHANSDK_TAG: epi
+
+stages:
+  - build
+
+build-against-ulterius:
+  stage: build
   script:
-    - mkdir build-ulterius
-    - cd build-ulterius
+    - mkdir build-$ULTERIUS_TAG
+    - cd build-$ULTERIUS_TAG
     - cmake ..
     - cmake --build . --config Release
     - dir
-    - dir Release\xono2l.dll
+    - dir Release/xono2l-$ULTERIUS_TAG.dll
   tags:
     - gift-hopper  
+
+build-against-epiphan-sdk:
+  stage: build
+  script:
+    - mkdir build-$EPIPHANSDK_TAG
+    - cd build-$EPIPHANSDK_TAG
+    - cmake ..
+    - cmake --build . --config Release
+    - dir
+    - dir Release/xono2l-$EPIPHANSDK_TAG.dll
