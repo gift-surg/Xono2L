@@ -80,6 +80,7 @@ set(XONO2L_SOURCES
     ${CMAKE_SOURCE_DIR}/src/ulterius_singleton.cpp
     ${CMAKE_SOURCE_DIR}/src/ulterius_controller.cpp
     ${CMAKE_SOURCE_DIR}/src/callbacks.cpp
+    ${CMAKE_SOURCE_DIR}/src/connection.cpp
     ${CMAKE_SOURCE_DIR}/api/xono2l.cpp
 )
 
