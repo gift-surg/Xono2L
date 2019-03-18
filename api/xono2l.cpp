@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "xono2l.h"
 #include "ulterius_controller.h"
+#include "connection.h"
 #include <thread>
 
 BOOL APIENTRY  DllMain(HMODULE hModule, DWORD ul_reason_for_call, LPVOID lpReserved)
@@ -24,11 +25,24 @@ bool start_acquisition(const char *device_ident) noexcept
 		if (is_acquiring())
 			return false;
 
+        Stream& stream = Stream::get_instance();
+        stream.set_interface(device_ident);
+
+        switch(stream.get_interface())
+        {
+        case Interface::Ulterius:
 #ifdef USE_ULTERIUS
-        return UlteriusController::start_acquisition(device_ident);
+            return UlteriusController::start_acquisition(device_ident);
 #else
-        return false;
+            return false;
 #endif
+            break;
+        case Interface::Epiphan:
+            // TODO
+        default:
+            return false;
+            break;
+		}
 	}
 	catch (...)
 	{
@@ -49,11 +63,22 @@ bool stop_acquisition() noexcept
 		if (!is_acquiring())
 			return true;
 
+        Stream& stream = Stream::get_instance();
+        switch(stream.get_interface())
+        {
+        case Interface::Ulterius:
 #ifdef USE_ULTERIUS
-        return UlteriusController::stop_acquisition();
+            return UlteriusController::stop_acquisition();
 #else
-        return false;
+            return false;
 #endif
+            break;
+        case Interface::Epiphan:
+            // TODO
+        default:
+            return false;
+            break;
+        }
 	}
 	catch (...)
 	{
@@ -71,11 +96,22 @@ bool is_acquiring() noexcept
 {
 	try
 	{
+        Stream& stream = Stream::get_instance();
+        switch(stream.get_interface())
+        {
+        case Interface::Ulterius:
 #ifdef USE_ULTERIUS
-        return UlteriusController::is_acquiring();
+            return UlteriusController::is_acquiring();
 #else
-        return false;
+            return false;
 #endif
+            break;
+        case Interface::Epiphan:
+            // TODO
+        default:
+            return false;
+            break;
+        }
 	}
 	catch (...)
 	{
@@ -97,11 +133,22 @@ bool get_data(uint8_t *data, uint32_t *width, uint32_t *height,
 		if (!is_acquiring())
 			return false;
 
+        Stream& stream = Stream::get_instance();
+        switch(stream.get_interface())
+        {
+        case Interface::Ulterius:
 #ifdef USE_ULTERIUS
-        return UlteriusController::get_data(data, width, height, depth, freq);
+            return UlteriusController::get_data(data, width, height, depth, freq);
 #else
-        return false;
+            return false;
 #endif
+            break;
+        case Interface::Epiphan:
+            // TODO
+        default:
+            return false;
+            break;
+        }
 	}
 	catch (...)
 	{
