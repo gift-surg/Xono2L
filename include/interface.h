@@ -2,6 +2,6 @@
 
 enum Interface
 {
-    Ulterius,
-    Epiphan
+    Ulterius = 0,
+    Epiphan = 1
 };
