@@ -1,5 +1,5 @@
 #include "connection.h"
-#include <exception>
+#include <stdexcept>
 #include <cctype>
 
 
