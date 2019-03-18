@@ -41,7 +41,7 @@ void Stream::set_interface(const char *device_ident)
 
 Interface Stream::get_interface()
 {
-    if (not initialised)
+    if (!initialised)
         throw std::runtime_error("Streaming not initialised");
     return interface;
 }
