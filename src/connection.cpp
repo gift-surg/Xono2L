@@ -31,7 +31,7 @@ void Stream::set_interface(const char *device_ident)
     std::string _device_ident(device_ident);
     if (_device_ident.starts_with("COM"))
         interface = Interface::Epiphan;
-    else if (std::isdigit([device_ident[0]))
+    else if (std::isdigit(device_ident[0]))
         interface = Interface::Ulterius;
     else
         throw std::runtime_error("Device identifier not recognised");
