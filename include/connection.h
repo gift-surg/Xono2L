@@ -1,10 +1,7 @@
 #pragma once
 
-enum Interface
-{
-    Ulterius,
-    Epiphan
-};
+#include "interface.h"
+
 
 class Stream
 {

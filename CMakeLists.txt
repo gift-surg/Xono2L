@@ -71,6 +71,7 @@ set(XONO2L_HEADERS
     ${CMAKE_SOURCE_DIR}/include/callbacks.h
     ${CMAKE_SOURCE_DIR}/include/connection.h
     ${CMAKE_SOURCE_DIR}/include/epiphan_controller.h
+    ${CMAKE_SOURCE_DIR}/include/interface.h
     ${CMAKE_SOURCE_DIR}/api/xono2l.h
 )
 set(XONO2L_SOURCES
