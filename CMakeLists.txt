@@ -70,6 +70,7 @@ set(XONO2L_HEADERS
     ${CMAKE_SOURCE_DIR}/include/ulterius_controller.h
     ${CMAKE_SOURCE_DIR}/include/callbacks.h
     ${CMAKE_SOURCE_DIR}/include/connection.h
+    ${CMAKE_SOURCE_DIR}/include/epiphan_controller.h
     ${CMAKE_SOURCE_DIR}/api/xono2l.h
 )
 set(XONO2L_SOURCES
@@ -81,6 +82,7 @@ set(XONO2L_SOURCES
     ${CMAKE_SOURCE_DIR}/src/ulterius_controller.cpp
     ${CMAKE_SOURCE_DIR}/src/callbacks.cpp
     ${CMAKE_SOURCE_DIR}/src/connection.cpp
+    ${CMAKE_SOURCE_DIR}/src/epiphan_controller.cpp
     ${CMAKE_SOURCE_DIR}/api/xono2l.cpp
 )
 
