@@ -9,7 +9,7 @@ enum Interface
 class Stream
 {
 protected:
-    Interface interface;
+    enum Interface interface;
     bool initialised;
 protected:
     Stream();
