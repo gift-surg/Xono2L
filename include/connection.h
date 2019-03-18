@@ -3,7 +3,7 @@
 enum Interface
 {
     Ulterius,
-    Epiphan,
+    Epiphan
 };
 
 class Stream
