@@ -2,6 +2,7 @@
 #include "xono2l.h"
 #include "ulterius_controller.h"
 #include "connection.h"
+#include "epiphan_controller.h"
 #include <thread>
 
 BOOL APIENTRY  DllMain(HMODULE hModule, DWORD ul_reason_for_call, LPVOID lpReserved)
@@ -38,7 +39,12 @@ bool start_acquisition(const char *device_ident) noexcept
 #endif
             break;
         case Interface::Epiphan:
-            // TODO
+#ifdef USE_EPIPHAN
+            return EpiphanController::start_acquisition(device_ident);
+#else
+            return false;
+#endif
+            break;
         default:
             return false;
             break;
@@ -74,7 +80,12 @@ bool stop_acquisition() noexcept
 #endif
             break;
         case Interface::Epiphan:
-            // TODO
+#ifdef USE_EPIPHAN
+            return EpiphanController::stop_acquisition();
+#else
+            return false;
+#endif
+            break;
         default:
             return false;
             break;
@@ -107,7 +118,12 @@ bool is_acquiring() noexcept
 #endif
             break;
         case Interface::Epiphan:
-            // TODO
+#ifdef USE_EPIPHAN
+            return EpiphanController::is_acquiring();
+#else
+            return false;
+#endif
+            break;
         default:
             return false;
             break;
@@ -144,7 +160,12 @@ bool get_data(uint8_t *data, uint32_t *width, uint32_t *height,
 #endif
             break;
         case Interface::Epiphan:
-            // TODO
+#ifdef USE_EPIPHAN
+            return EpiphanController::get_data(data, width, height);
+#else
+            return false;
+#endif
+            break;
         default:
             return false;
             break;
