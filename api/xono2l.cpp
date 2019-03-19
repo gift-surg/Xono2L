@@ -40,7 +40,7 @@ bool start_acquisition(const char *device_ident) noexcept
             break;
         case Interface::Epiphan:
 #ifdef USE_EPIPHAN
-            return EpiphanController::start_acquisition(device_ident);
+            return EpiphanController::get_instance().start_acquisition(device_ident);
 #else
             return false;
 #endif
@@ -81,7 +81,7 @@ bool stop_acquisition() noexcept
             break;
         case Interface::Epiphan:
 #ifdef USE_EPIPHAN
-            return EpiphanController::stop_acquisition();
+            return EpiphanController::get_instance().stop_acquisition();
 #else
             return false;
 #endif
@@ -119,7 +119,7 @@ bool is_acquiring() noexcept
             break;
         case Interface::Epiphan:
 #ifdef USE_EPIPHAN
-            return EpiphanController::is_acquiring();
+            return EpiphanController::get_instance().is_acquiring();
 #else
             return false;
 #endif
@@ -161,7 +161,7 @@ bool get_data(uint8_t *data, uint32_t *width, uint32_t *height,
             break;
         case Interface::Epiphan:
 #ifdef USE_EPIPHAN
-            return EpiphanController::get_data(data, width, height);
+            return EpiphanController::get_instance().get_data(data, width, height);
 #else
             return false;
 #endif
