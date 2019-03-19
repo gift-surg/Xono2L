@@ -30,9 +30,9 @@ void Stream::set_interface(const char *device_ident)
 
     std::string _device_ident(device_ident);
     if (_device_ident.compare(0, 3, "COM") == 0) // 0 means equal!
-        interface = Interface::Epiphan;
+        interf = Interface::Epiphan;
     else if (std::isdigit(device_ident[0]))
-        interface = Interface::Ulterius;
+        interf = Interface::Ulterius;
     else
         throw std::runtime_error("Device identifier not recognised");
     initialised = true;
@@ -43,5 +43,5 @@ Interface Stream::get_interface()
 {
     if (!initialised)
         throw std::runtime_error("Streaming not initialised");
-    return interface;
+    return interf;
 }

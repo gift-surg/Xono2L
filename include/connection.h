@@ -1,15 +1,12 @@
 #pragma once
 
-enum Interface
-{
-    Ulterius,
-    Epiphan
-};
+#include "interface.h"
+
 
 class Stream
 {
 protected:
-    Interface interface;
+    Interface interf;
     bool initialised;
 protected:
     Stream();
