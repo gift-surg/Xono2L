@@ -3,6 +3,27 @@
 #ifdef USE_EPIPHAN
 
 
+EpiphanController::EpiphanController()
+	: frame_grabber(NULL)
+{
+	// nop
+}
+
+
+EpiphanController::~EpiphanController()
+{
+	if (is_acquiring())
+		stop_acquisition();
+}
+
+
+EpiphanController& EpiphanController::get_instance()
+{
+	static EpiphanController _controller;
+	return _controller;
+}
+
+
 bool EpiphanController::start_acquisition(const char *device_ident)
 {
     // TODO
