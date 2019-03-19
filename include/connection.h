@@ -6,7 +6,7 @@
 class Stream
 {
 protected:
-    Interface interface;
+    Interface interf;
     bool initialised;
 protected:
     Stream();
