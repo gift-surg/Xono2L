@@ -173,3 +173,51 @@ bool get_data(uint8_t *data, uint32_t *width, uint32_t *height,
 		return false;
 	}
 }
+
+_declspec (dllexport)
+bool set_focus_depth(float focus_depth) noexcept
+{
+	try
+	{
+		if (!is_acquiring())
+			return false;
+
+		UlteriusSingleton& ult = UlteriusSingleton::get_instance();
+		ult.setParamValue("focus depth", (uint32_t)(focus_depth * 1000));
+
+		return true;
+	}
+	catch (...)
+	{
+		/* We use this evil design only with the intention of not causing
+		 * the LabVIEW client to crash. This try-catch block should better
+		 * be replaced by an appropriate exception handling mechanism
+		 * interplayed between C++ and LabVIEW.
+		 */
+		return false;
+	}
+}
+
+_declspec (dllexport)
+float get_focus_depth() noexcept
+{
+	try
+	{
+		if (!is_acquiring())
+			return false;
+
+		UlteriusSingleton& ult = UlteriusSingleton::get_instance();
+		int focus_depth;
+		ult.getParamValue("focus depth", focus_depth);
+		return focus_depth / 1000.0;
+	}
+	catch (...)
+	{
+		/* We use this evil design only with the intention of not causing
+		 * the LabVIEW client to crash. This try-catch block should better
+		 * be replaced by an appropriate exception handling mechanism
+		 * interplayed between C++ and LabVIEW.
+		 */
+		return false;
+	}
+}
