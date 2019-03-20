@@ -83,20 +83,18 @@ bool EpiphanController::get_data(uint8_t *data, uint32_t *width, uint32_t *heigh
 
 	buffer = FrmGrab_Frame(frame_grabber, flags, &roi);
 
-	if (buffer)
-	{
-		memcpy(data, buffer->pixbuf, buffer->imagelen);
-		*width = buffer->crop.width;
-		*height = buffer->crop.height;
-
-		FrmGrab_Release(frame_grabber, buffer);
-
-		buffer = NULL;
-
-		return true;
-	}
-	else
+	if (buffer == NULL)
 		return false;
+
+	memcpy(data, buffer->pixbuf, buffer->imagelen);
+	*width = buffer->crop.width;
+	*height = buffer->crop.height;
+
+	FrmGrab_Release(frame_grabber, buffer);
+
+	buffer = NULL;
+
+	return true;
 }
 
 
