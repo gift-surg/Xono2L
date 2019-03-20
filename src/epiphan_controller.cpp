@@ -58,11 +58,11 @@ bool EpiphanController::start_acquisition(const char *device_ident)
 
 bool EpiphanController::stop_acquisition()
 {
-	if (frame_grabber)
-	{
-		FrmGrab_Close(frame_grabber);
-		frame_grabber = NULL;
-	}
+	if (!is_acquiring())
+		return true;
+
+	FrmGrab_Close(frame_grabber);
+	frame_grabber = NULL;
 
 	FrmGrab_Deinit();
 
