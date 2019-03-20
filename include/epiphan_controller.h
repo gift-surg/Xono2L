@@ -11,6 +11,9 @@ class EpiphanController
 {
 protected:
 	FrmGrabber * frame_grabber;
+	V2U_UINT32 flags;
+	V2U_GrabFrame2 * buffer;
+	V2URect roi;
 
 protected:
 	EpiphanController();
