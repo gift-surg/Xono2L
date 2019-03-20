@@ -1,10 +1,14 @@
 #include "epiphan_controller.h"
 
+#include <iostream>
+
 #ifdef USE_EPIPHAN
 
 
 EpiphanController::EpiphanController()
 	: frame_grabber(NULL)
+	, flags(0)
+	, buffer(NULL)
 {
 	// nop
 }
