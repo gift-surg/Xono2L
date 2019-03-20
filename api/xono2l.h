@@ -46,3 +46,20 @@ bool get_data(
     uint8_t *data, uint32_t *width, uint32_t *height,
     uint32_t *depth, uint32_t *freq
 ) noexcept;
+
+#ifdef USE_ULTERIUS
+
+//!
+//! \brief Set focus depth to specified value (specified in
+//! millimetres)
+//!
+_declspec (dllexport)
+bool set_focus_depth(float focus_depth) noexcept;
+
+//!
+//! \brief Get current focus depth (in millimetres)
+//!
+_declspec (dllexport)
+float get_focus_depth() noexcept;
+
+#endif // USE_ULTERIUS
