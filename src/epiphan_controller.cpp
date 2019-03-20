@@ -30,29 +30,73 @@ EpiphanController& EpiphanController::get_instance()
 
 bool EpiphanController::start_acquisition(const char *device_ident)
 {
-    // TODO
-    return false;
+	if (is_acquiring())
+		return true;
+
+	FrmGrab_Init();
+
+	frame_grabber = FrmGrabLocal_OpenSN(device_ident);
+
+	if (frame_grabber == NULL)
+	{
+		std::cerr << "Could not open " << device_ident << std::endl;
+		return false;
+	}
+
+	V2U_INT32 colour_space = V2U_GRABFRAME_FORMAT_BGR24;
+	flags |= colour_space;
+
+	// TODO: set ROI more intelligently
+	roi.x = 0;
+	roi.y = 0;
+	roi.width = 1920;
+	roi.height = 1080;
+
+	return true;
 }
 
 
 bool EpiphanController::stop_acquisition()
 {
-    // TODO
-    return false;
+	if (frame_grabber)
+	{
+		FrmGrab_Close(frame_grabber);
+		frame_grabber = NULL;
+	}
+
+	FrmGrab_Deinit();
+
+    return true;
 }
 
 
 bool EpiphanController::is_acquiring()
 {
-    // TODO
-    return false;
+	return !(frame_grabber == NULL);
 }
 
 
 bool EpiphanController::get_data(uint8_t *data, uint32_t *width, uint32_t *height)
 {
-    // TODO
-    return false;
+	if (!is_acquiring())
+		return false;
+
+	buffer = FrmGrab_Frame(frame_grabber, flags, &roi);
+
+	if (buffer)
+	{
+		memcpy(data, buffer->pixbuf, buffer->imagelen);
+		*width = buffer->crop.width;
+		*height = buffer->crop.height;
+
+		FrmGrab_Release(frame_grabber, buffer);
+
+		buffer = NULL;
+
+		return true;
+	}
+	else
+		return false;
 }
 
 
