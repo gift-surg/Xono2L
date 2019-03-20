@@ -182,6 +182,8 @@ bool get_data(uint8_t *data, uint32_t *width, uint32_t *height,
 	}
 }
 
+#ifdef USE_ULTERIUS
+
 _declspec (dllexport)
 bool set_focus_depth(float focus_depth) noexcept
 {
@@ -229,3 +231,5 @@ float get_focus_depth() noexcept
 		return false;
 	}
 }
+
+#endif // USE_ULTERIUS
