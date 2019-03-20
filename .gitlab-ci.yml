@@ -23,7 +23,7 @@ build-against-ulterius:
       - build-%ulterius_tag%\Release\xono2l-%ulterius_tag%.dll
       - build-%ulterius_tag%\Release\xono2l-%ulterius_tag%.lib
       - build-%ulterius_tag%\Release\xono2l-%ulterius_tag%.exp
-    expire_in: 1 day
+    expire_in: 1 week
   tags:
     - gift-hopper
 
@@ -42,6 +42,6 @@ build-against-epiphan-sdk:
       - build-%epiphansdk_tag%\Release\xono2l-%epiphansdk_tag%.dll
       - build-%epiphansdk_tag%\Release\xono2l-%epiphansdk_tag%.lib
       - build-%epiphansdk_tag%\Release\xono2l-%epiphansdk_tag%.exp
-    expire_in: 1 day
+    expire_in: 1 week
   tags:
     - gift-hopper
