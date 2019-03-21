@@ -1,14 +1,10 @@
 #include "stdafx.h"
 #include "xono2l.h"
-#include "b_mode_frame.h"
-#include "ImagingModes.h"
-#include "callbacks.h"
-#include "device_config.h"
-#include "device_config_daemon.h"
-#include "ulterius_singleton.h"
+#include "ulterius_controller.h"
+#include "connection.h"
+#include "epiphan_controller.h"
 #include <thread>
-
-uDataDesc data_desc;
+#include <stdexcept>
 
 BOOL APIENTRY  DllMain(HMODULE hModule, DWORD ul_reason_for_call, LPVOID lpReserved)
 {
@@ -24,55 +20,37 @@ BOOL APIENTRY  DllMain(HMODULE hModule, DWORD ul_reason_for_call, LPVOID lpReser
 }
 
 _declspec (dllexport)
-bool start_acquisition(const char *ip_address) noexcept
+bool start_acquisition(const char *device_url) noexcept
 {
 	try
 	{
 		if (is_acquiring())
-			return false;
+			return true;
 
-		UlteriusSingleton& ult = UlteriusSingleton::get_instance();
-		if (!ult.connect(ip_address))
-			return false;
+        Stream& stream = Stream::get_instance();
+		char device_ident[100];
+        stream.set_interface(device_url, device_ident);
 
-		if (!ult.selectMode(imagingMode::BMode))
-			return false;
-		// seems to be necessary to allow for mode selection to complete
-		std::this_thread::sleep_for(std::chrono::duration<double, std::milli>(1000));
-		if (ult.getActiveImagingMode() != imagingMode::BMode)
-			return false;
-
-		if (!ult.setSharedMemoryStatus(0))
-			return false;
-
-		if (!ult.isDataAvailable(uData::udtBPost))
-			return false;
-		if (!ult.getDataDescriptor(uData::udtBPost, data_desc))
-			return false;
-		if (!ult.setDataToAcquire(uData::udtBPost))
-			return false;
-		BModeFrame& buffer = BModeFrame::get_instance();
-		buffer.set_dims(data_desc.w, data_desc.h);
-
-		DeviceConfigDaemon& device_monitor = DeviceConfigDaemon::get_instance();
-
-		// we reset these artificially to 0, to induce a "change" in the 
-		// subsequent set, such that the line triggers get activated
-		ult.setParamValue("trigger out", 0);
-		ult.setParamValue("trigger out 2", 0);
-
-		ult.setCallback(new_frame_arrived);
-		ult.setParamCallback(params_changed);
-		ult.setTimeout(100);
-		// seems to be necessary to allow for above stuff to take effect
-		std::this_thread::sleep_for(std::chrono::duration<double, std::milli>(1000));
-
-		// and now actually "set" them, activating the line triggers
-		ult.setParamValue("trigger out", 2);
-		ult.setParamValue("trigger out 2", 1);
-
-		device_monitor.start();
-		return true;
+        switch(stream.get_interface())
+        {
+        case Interface::Ulterius:
+#ifdef USE_ULTERIUS
+            return UlteriusController::start_acquisition(device_ident);
+#else
+            return false;
+#endif
+            break;
+        case Interface::Epiphan:
+#ifdef USE_EPIPHAN
+            return EpiphanController::get_instance().start_acquisition(device_ident);
+#else
+            return false;
+#endif
+            break;
+        default:
+            return false;
+            break;
+		}
 	}
 	catch (...)
 	{
@@ -93,26 +71,27 @@ bool stop_acquisition() noexcept
 		if (!is_acquiring())
 			return true;
 
-		DeviceConfigDaemon& device_monitor = DeviceConfigDaemon::get_instance();
-		device_monitor.stop();
-
-		UlteriusSingleton& ult = UlteriusSingleton::get_instance();
-		ult.setCallback(ignore_new_frame);
-		ult.setParamCallback(ignore_new_params);
-		ult.setTimeout(100);
-		// seems to be necessary to allow for above stuff to take effect
-		std::this_thread::sleep_for(std::chrono::duration<double, std::milli>(1000));
-
-		if (ult.isConnected())
-		{
-			ult.disconnect();
-			// seems to be necessary to allow for mode disconnection to complete
-			std::this_thread::sleep_for(std::chrono::duration<double, std::milli>(500));
-			if (ult.isConnected())
-				return false;
-		}
-
-		return true;
+        Stream& stream = Stream::get_instance();
+        switch(stream.get_interface())
+        {
+        case Interface::Ulterius:
+#ifdef USE_ULTERIUS
+            return UlteriusController::stop_acquisition();
+#else
+            return false;
+#endif
+            break;
+        case Interface::Epiphan:
+#ifdef USE_EPIPHAN
+            return EpiphanController::get_instance().stop_acquisition();
+#else
+            return false;
+#endif
+            break;
+        default:
+            return false;
+            break;
+        }
 	}
 	catch (...)
 	{
@@ -130,8 +109,37 @@ bool is_acquiring() noexcept
 {
 	try
 	{
-		UlteriusSingleton& ult = UlteriusSingleton::get_instance();
-		return ult.isConnected();
+        Stream& stream = Stream::get_instance();
+		Interface interf;
+		try
+		{
+			interf = stream.get_interface();
+		}
+		catch (const std::runtime_error& re)
+		{
+			return false;
+		}
+
+        switch(interf)
+        {
+        case Interface::Ulterius:
+#ifdef USE_ULTERIUS
+            return UlteriusController::is_acquiring();
+#else
+            return false;
+#endif
+            break;
+        case Interface::Epiphan:
+#ifdef USE_EPIPHAN
+            return EpiphanController::get_instance().is_acquiring();
+#else
+            return false;
+#endif
+            break;
+        default:
+            return false;
+            break;
+        }
 	}
 	catch (...)
 	{
@@ -153,15 +161,27 @@ bool get_data(uint8_t *data, uint32_t *width, uint32_t *height,
 		if (!is_acquiring())
 			return false;
 
-		BModeFrame& buffer = BModeFrame::get_instance();
-		memcpy(data, buffer.get_data(), buffer.get_length());
-		*width = buffer.get_width();
-		*height = buffer.get_height();
-		DeviceConfig& config = DeviceConfig::get_instance();
-		*depth = config.get_depth();
-		*freq = config.get_freq();
-
-		return true;
+        Stream& stream = Stream::get_instance();
+        switch(stream.get_interface())
+        {
+        case Interface::Ulterius:
+#ifdef USE_ULTERIUS
+            return UlteriusController::get_data(data, width, height, depth, freq);
+#else
+            return false;
+#endif
+            break;
+        case Interface::Epiphan:
+#ifdef USE_EPIPHAN
+            return EpiphanController::get_instance().get_data(data, width, height);
+#else
+            return false;
+#endif
+            break;
+        default:
+            return false;
+            break;
+        }
 	}
 	catch (...)
 	{
@@ -173,6 +193,8 @@ bool get_data(uint8_t *data, uint32_t *width, uint32_t *height,
 		return false;
 	}
 }
+
+#ifdef USE_ULTERIUS
 
 _declspec (dllexport)
 bool set_focus_depth(float focus_depth) noexcept
@@ -221,3 +243,5 @@ float get_focus_depth() noexcept
 		return false;
 	}
 }
+
+#endif // USE_ULTERIUS

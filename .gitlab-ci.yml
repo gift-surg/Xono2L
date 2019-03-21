@@ -1,10 +1,47 @@
-build:
+variables:
+  ulterius_tag: usx
+  epiphansdk_tag: epi
+  epiphansdk_dir: C:/Program Files/Epiphan/epiphan_sdk-3.30.3.0007
+  epiphandrv32_dir: C:/Program Files (x86)/Epiphan/epiphan-usb-pci-drivers-windows-32bit-3.30.7.0008
+  epiphandrv64_dir: C:/Program Files/Epiphan/epiphan-usb-pci-drivers-windows-64bit-3.30.7.0008
+
+stages:
+  - build
+
+build-against-ulterius:
+  stage: build
   script:
-    - mkdir build-ulterius
-    - cd build-ulterius
-    - cmake ..
+    - mkdir build-%ulterius_tag%
+    - cd build-%ulterius_tag%
+    - cmake -D USE_ULTERIUS:BOOL=ON ..
     - cmake --build . --config Release
     - dir
-    - dir Release\xono2l.dll
+    - dir Release\xono2l-%ulterius_tag%.dll
+  artifacts:
+    name: "%CI_JOB_NAME%-%CI_COMMIT_REF_NAME%"
+    paths:
+      - build-%ulterius_tag%\Release\xono2l-%ulterius_tag%.dll
+      - build-%ulterius_tag%\Release\xono2l-%ulterius_tag%.lib
+      - build-%ulterius_tag%\Release\xono2l-%ulterius_tag%.exp
+    expire_in: 1 week
   tags:
-    - gift-hopper  
+    - gift-hopper
+
+build-against-epiphan-sdk:
+  stage: build
+  script:
+    - mkdir build-%epiphansdk_tag%
+    - cd build-%epiphansdk_tag%
+    - cmake -D USE_EPIPHAN:BOOL=ON ..
+    - cmake --build . --config Release
+    - dir
+    - dir Release\xono2l-%epiphansdk_tag%.dll
+  artifacts:
+    name: "%CI_JOB_NAME%-%CI_COMMIT_REF_NAME%"
+    paths:
+      - build-%epiphansdk_tag%\Release\xono2l-%epiphansdk_tag%.dll
+      - build-%epiphansdk_tag%\Release\xono2l-%epiphansdk_tag%.lib
+      - build-%epiphansdk_tag%\Release\xono2l-%epiphansdk_tag%.exp
+    expire_in: 1 week
+  tags:
+    - gift-hopper

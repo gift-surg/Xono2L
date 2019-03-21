@@ -1,4 +1,7 @@
 #pragma once
+
+#ifdef USE_ULTERIUS
+
 #include "ulterius.h"
 
 //!
@@ -17,3 +20,5 @@ public:
 };
 
 static UlteriusSingleton& controller = UlteriusSingleton::get_instance();
+
+#endif // USE_ULTERIUS

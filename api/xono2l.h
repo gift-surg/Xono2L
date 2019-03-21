@@ -5,16 +5,18 @@
 BOOL APIENTRY DllMain(HMODULE, DWORD, LPVOID);
 
 //!
-//! \brief Attempt to connect to an Ultrasonix machine at the
-//! specified IP address, and subsequently start a live
-//! acquisition
+//! \brief Attempt to connect to the device specified, and
+//! subsequently start a live acquisition
+//! \param device_url either the IP address of an Ultrasonix
+//! machine or the port of an Epiphan frame-grabber, with "u:"
+//! prepended to the former, and "e:" prepended to the latter
 //!
 //! \return true if no machine is connected, and a connection
 //! has been successfully established, and streaming started,
 //! false otherwise
 //!
 _declspec (dllexport)
-bool start_acquisition(const char *ip_address) noexcept;
+bool start_acquisition(const char *device_url) noexcept;
 
 //!
 //! \brief Attempt to stop the current live acquisition
@@ -46,6 +48,8 @@ bool get_data(
     uint32_t *depth, uint32_t *freq
 ) noexcept;
 
+#ifdef USE_ULTERIUS
+
 //!
 //! \brief Set focus depth to specified value (specified in
 //! millimetres)
@@ -58,3 +62,5 @@ bool set_focus_depth(float focus_depth) noexcept;
 //!
 _declspec (dllexport)
 float get_focus_depth() noexcept;
+
+#endif // USE_ULTERIUS

@@ -1,8 +1,11 @@
 # Xono2L
 
 Xono2L is a [LabVIEW][labview]-compatible, extensible C++ API that supports the capture of live ultrasound streams.
-Xono2L links with the Ulterius library, which is part of the Sonix SDK, a proprietary software development kit
-provided for use with [Sonix ultrasound systems][sonix].
+Xono2L links with one of the following:
+* Ulterius library, which is part of the Sonix SDK, a proprietary software development kit provided for use with
+[Sonix ultrasound systems][sonix]
+* Epiphan Video Grabber SDK, a proprietary software development kit provided for use with [Epiphan frame grabbers][epiphan]
+
 The following animated image shows a [demo VI][demo-vi] with Xono2L in action:
 
 ![alt text][labview-with-xono2l]
@@ -12,14 +15,16 @@ The following animated image shows a [demo VI][demo-vi] with Xono2L in action:
 [labview]: https://www.ni.com/labview
 [sonix]: https://www.bkmedical.com/
 [demo-vi]: vi/demo.vi
+[epiphan]: https://www.epiphan.com/
 
 
 ## Getting started
 
 ### Dependencies
 
-Xono2L uses functionality provided by the Ulterius library.
-Ulterius (Sonix SDK) is the only run-time dependency if you're using the [pre-built DLL][xono2L-dll].
+Depending on how it's configured, Xono2L uses functionality provided by either the Ulterius library or the
+Epiphan Video Grabber SDK.
+So one of these two will be the only run-time dependency if you're using a [pre-built DLL][xono2L-dll].
 
 Xono2L was tested on a platform with:
 
@@ -27,12 +32,16 @@ Xono2L was tested on a platform with:
 - LabVIEW version 17.0.1f1 (32-bit)
 - CMake version 3.12.4
 - Sonix SDK (Ulterius) version 6.1.0
+- Epiphan Video Grabber SDK version 3.30.3.0007
 
 ### Usage
 
 The [provided pre-built DLL][xono2L-dll] can be [imported in LabVIEW][labview-howto].
-Please note that the Sonix SDK should be accessible by your system when running LabVIEW.
-We recommend installing it under `C:/Program Files (x86)/sdk610` and [adding its `bin`
+Please note that the respective SDK should be accessible by your system when running LabVIEW.
+We recommend installing:
+* Sonix SDK under `C:/Program Files (x86)/sdk610` and [adding its `bin`
+sub-folder to your `PATH` environment variable][win-env].
+* Epiphan Video Grabber SDK under `C:/Program Files/Epiphan/epiphan_sdk-3.30.3.0007` and [adding its `epiphan\bin`
 sub-folder to your `PATH` environment variable][win-env].
 
 [xono2L-dll]: https://github.com/gift-surg/Xono2L/releases
@@ -49,9 +58,11 @@ In this process the DLL will need to be built by running the following CMake com
 build directory:
 
 ```bash
-cmake <path-to-xono2L-source-code>
+cmake -D <sdk-option>:BOOL=ON <path-to-xono2L-source-code>
 cmake --build . --config Release
 ```
+
+where `<sdk-option>` is either `USE_ULTERIUS` or `USE_EPIPHAN`, activating the corresponding support.
 
 The Xono2L CMake configuration files will be able to locate the needed Ulterius components
 provided the Sonix SDK is installed in the recommended location on your computer (see the Usage
@@ -81,6 +92,11 @@ Ulterius is part of the Sonix SDK, and **not included in this repository**.
 
 Copyright 2014 Ultrasonix Medical Corporation (now [BK Ultrasound][sonix])
 
+### Epiphan Video Grabber SDK
+
+**Not included in this repository**.
+
+Copyright (C) 2008-2013 [Epiphan Systems Inc.][epiphan]
 
 ## Acknowledgements
 
