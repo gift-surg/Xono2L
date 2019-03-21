@@ -7,15 +7,16 @@ BOOL APIENTRY DllMain(HMODULE, DWORD, LPVOID);
 //!
 //! \brief Attempt to connect to the device specified, and
 //! subsequently start a live acquisition
-//! \param device_ident either the IP address of an Ultrasonix
-//! machine or the port of an Epiphan frame-grabber
+//! \param device_url either the IP address of an Ultrasonix
+//! machine or the port of an Epiphan frame-grabber, with "u:"
+//! prepended to the former, and "e:" prepended to the latter
 //!
 //! \return true if no machine is connected, and a connection
 //! has been successfully established, and streaming started,
 //! false otherwise
 //!
 _declspec (dllexport)
-bool start_acquisition(const char *device_ident) noexcept;
+bool start_acquisition(const char *device_url) noexcept;
 
 //!
 //! \brief Attempt to stop the current live acquisition

@@ -20,7 +20,7 @@ BOOL APIENTRY  DllMain(HMODULE hModule, DWORD ul_reason_for_call, LPVOID lpReser
 }
 
 _declspec (dllexport)
-bool start_acquisition(const char *device_ident) noexcept
+bool start_acquisition(const char *device_url) noexcept
 {
 	try
 	{
@@ -28,7 +28,8 @@ bool start_acquisition(const char *device_ident) noexcept
 			return true;
 
         Stream& stream = Stream::get_instance();
-        stream.set_interface(device_ident);
+		char device_ident[100];
+        stream.set_interface(device_url, device_ident);
 
         switch(stream.get_interface())
         {
