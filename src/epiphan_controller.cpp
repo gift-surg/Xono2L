@@ -35,7 +35,7 @@ bool EpiphanController::start_acquisition(const char *device_ident)
 
 	FrmGrab_Init();
 
-	frame_grabber = FrmGrabLocal_OpenSN(device_ident);
+	frame_grabber = FrmGrab_Open(device_ident);
 
 	if (frame_grabber == NULL)
 	{
