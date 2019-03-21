@@ -47,10 +47,10 @@ bool EpiphanController::start_acquisition(const char *device_ident)
 	flags |= colour_space;
 
 	// TODO: set ROI more intelligently
-	roi.x = 0;
-	roi.y = 0;
-	roi.width = 1920;
-	roi.height = 1080;
+	roi.x = 320;
+	roi.y = 160;
+	roi.width = 1280;
+	roi.height = 960;
 
 	return true;
 }
