@@ -43,7 +43,7 @@ bool EpiphanController::start_acquisition(const char *device_ident)
 		return false;
 	}
 
-	V2U_INT32 colour_space = V2U_GRABFRAME_FORMAT_BGR24;
+	V2U_INT32 colour_space = V2U_GRABFRAME_FORMAT_I420;
 	flags |= colour_space;
 
 	// TODO: set ROI more intelligently
@@ -86,7 +86,8 @@ bool EpiphanController::get_data(uint8_t *data, uint32_t *width, uint32_t *heigh
 	if (buffer == NULL)
 		return false;
 
-	memcpy(data, buffer->pixbuf, buffer->imagelen);
+	size_t length_of_y = buffer->crop.width * buffer->crop.height;
+	memcpy(data, buffer->pixbuf, length_of_y);
 	*width = buffer->crop.width;
 	*height = buffer->crop.height;
 
