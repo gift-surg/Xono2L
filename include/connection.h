@@ -14,7 +14,7 @@ public:
     ~Stream();
 public:
     static Stream& get_instance();
-    void set_interface(const char *device_ident);
+    void set_interface(const char *device_url, char *device_ident);
     Interface get_interface();
 };
 

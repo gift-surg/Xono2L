@@ -23,16 +23,20 @@ Stream& Stream::get_instance()
 }
 
 
-void Stream::set_interface(const char *device_ident)
+void Stream::set_interface(const char *device_url, char *device_ident)
 {
     if (initialised)
         throw std::runtime_error("Streaming already initialised");
 
-    std::string _device_ident(device_ident);
-    if (std::isdigit(device_ident[0]))
-        interf = Interface::Ulterius;
-    else
+    std::string _device_url(device_url);
+	if (_device_url.compare(0, 2, "u:") == 0)
+		interf = Interface::Ulterius;
+    else if (_device_url.compare(0, 2, "e:") == 0)
 		interf = Interface::Epiphan;
+	else
+		throw std::runtime_error("Unsupported interface");
+
+	strcpy(device_ident, _device_url.substr(2).c_str());
     initialised = true;
 }
 
