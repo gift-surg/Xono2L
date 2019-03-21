@@ -4,6 +4,7 @@
 #include "connection.h"
 #include "epiphan_controller.h"
 #include <thread>
+#include <stdexcept>
 
 BOOL APIENTRY  DllMain(HMODULE hModule, DWORD ul_reason_for_call, LPVOID lpReserved)
 {
@@ -24,7 +25,7 @@ bool start_acquisition(const char *device_ident) noexcept
 	try
 	{
 		if (is_acquiring())
-			return false;
+			return true;
 
         Stream& stream = Stream::get_instance();
         stream.set_interface(device_ident);
@@ -108,7 +109,17 @@ bool is_acquiring() noexcept
 	try
 	{
         Stream& stream = Stream::get_instance();
-        switch(stream.get_interface())
+		Interface interf;
+		try
+		{
+			interf = stream.get_interface();
+		}
+		catch (const std::runtime_error& re)
+		{
+			return false;
+		}
+
+        switch(interf)
         {
         case Interface::Ulterius:
 #ifdef USE_ULTERIUS
