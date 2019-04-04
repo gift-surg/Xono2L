@@ -99,8 +99,12 @@ bool EpiphanController::get_data(uint8_t *data, uint32_t *width, uint32_t *heigh
 	if (buffer == NULL)
 		return false;
 
-	size_t length_of_y = buffer->crop.width * buffer->crop.height;
-	memcpy(data, buffer->pixbuf, length_of_y);
+    size_t relevant_data_length = 0;
+    if (flags & V2U_GRABFRAME_FORMAT_I420)
+        relevant_data_length = buffer->crop.width * buffer->crop.height;
+    else if (flags & V2U_GRABFRAME_FORMAT_RGB24)
+        relevant_data_length = buffer->imagelen;
+	memcpy(data, buffer->pixbuf, relevant_data_length);
 	*width = buffer->crop.width;
 	*height = buffer->crop.height;
 
