@@ -29,7 +29,7 @@ EpiphanController& EpiphanController::get_instance()
 }
 
 
-V2U_INT32 determine_colour(const char *device_ident)
+V2U_INT32 EpiphanController::determine_colour(const char *device_ident)
 {
     V2U_INT32 colour_space = V2U_GRABFRAME_FORMAT_RGB24;
     std::string device_ident_(device_ident);
