@@ -43,7 +43,7 @@ bool EpiphanController::start_acquisition(const char *device_ident)
 		return false;
 	}
 
-	V2U_INT32 colour_space = V2U_GRABFRAME_FORMAT_I420;
+	V2U_INT32 colour_space = V2U_GRABFRAME_FORMAT_RGB24;
 	flags |= colour_space;
 
 	// TODO: set ROI more intelligently
