@@ -36,7 +36,7 @@ SET(FrmGrab_HEADERS
     $ENV{EpiphanSDK_DIR}/epiphan/frmgrab/include/frmgrab.h
     )
 SET(FrmGrab_LIB
-    $ENV{EpiphanSDK_DIR}/epiphan/frmgrab/lib/win/Win32/frmgrab.lib
+    $ENV{EpiphanSDK_DIR}/epiphan/frmgrab/lib/win/x64/frmgrab.lib
     ) # CMAKE_CURRENT_SOURCE_DIR necessary because of tests linking to this
 
 # SLIB
