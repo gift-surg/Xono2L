@@ -36,6 +36,7 @@ build-against-epiphan-sdk:
     - cmake --build . --config Release
     - dir
     - dir Release\xono2l-%epiphansdk_tag%.dll
+    - file.exe Release\xono2l-%epiphansdk_tag%.dll | grep -c 80386  REM Should fail if 64-bit
   artifacts:
     name: "%CI_JOB_NAME%-%CI_COMMIT_REF_NAME%"
     paths:
