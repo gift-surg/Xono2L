@@ -32,7 +32,7 @@ build-against-epiphan-sdk:
   script:
     - mkdir build-%epiphansdk_tag%
     - cd build-%epiphansdk_tag%
-    - cmake -D CMAKE_GENERATOR_PLATFORM=x86 -D USE_EPIPHAN:BOOL=ON ..
+    - cmake -D CMAKE_GENERATOR_PLATFORM=x64 -D USE_EPIPHAN:BOOL=ON ..
     - cmake --build . --config Release
     - dir
     - dir Release\xono2l-%epiphansdk_tag%.dll
