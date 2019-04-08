@@ -6,7 +6,6 @@ if(NOT DEFINED ENV{EpiphanSDK_DIR})
 endif(NOT DEFINED ENV{EpiphanSDK_DIR})
 
 # ZLIB
-SET(ZLIB_ROOT "C:\\Program Files\\zlib\\zlib-1.2.3-lib")  # TODO: this should not be hard-coded
 FIND_PACKAGE(ZLIB REQUIRED)
 
 # pthreads
