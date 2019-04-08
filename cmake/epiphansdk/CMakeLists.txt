@@ -35,9 +35,15 @@ SET(FrmGrab_HEADERS
     $ENV{EpiphanSDK_DIR}/epiphan/include/v2u_version.h
     $ENV{EpiphanSDK_DIR}/epiphan/frmgrab/include/frmgrab.h
     )
-SET(FrmGrab_LIB
-    $ENV{EpiphanSDK_DIR}/epiphan/frmgrab/lib/win/Win32/frmgrab.lib
-    )
+if(${CMAKE_GENERATOR_PLATFORM} MATCHES "x64")
+	SET(FrmGrab_LIB
+		$ENV{EpiphanSDK_DIR}/epiphan/frmgrab/lib/win/x64/frmgrab.lib
+		)
+else()
+	SET(FrmGrab_LIB
+		$ENV{EpiphanSDK_DIR}/epiphan/frmgrab/lib/win/Win32/frmgrab.lib
+		)
+endif()
 
 # SLIB
 SET(SLIB_HEADERS
