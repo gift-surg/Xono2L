@@ -35,7 +35,7 @@ build-against-epiphan-sdk-32bit:
   script:
     - mkdir build-%epiphansdk_tag%-%arch_tag%
     - cd build-%epiphansdk_tag%-%arch_tag%
-    - cmake -D ZLIB_ROOT=%zlib_root% -D USE_EPIPHAN:BOOL=ON ..
+    - cmake -D ZLIB_ROOT="%zlib_root%" -D USE_EPIPHAN:BOOL=ON ..
     - cmake --build . --config Release
     - dir
     - dir Release\xono2l-%epiphansdk_tag%-%arch_tag%.dll
@@ -57,7 +57,7 @@ build-against-epiphan-sdk-64bit:
   script:
     - mkdir build-%epiphansdk_tag%-%arch_tag%
     - cd build-%epiphansdk_tag%-%arch_tag%
-    - cmake -A x64 -D ZLIB_ROOT=%zlib_root% -D USE_EPIPHAN:BOOL=ON ..
+    - cmake -A x64 -D ZLIB_ROOT="%zlib_root%" -D USE_EPIPHAN:BOOL=ON ..
     - cmake --build . --config Release
     - dir
     - dir Release\xono2l-%epiphansdk_tag%-%arch_tag%.dll
