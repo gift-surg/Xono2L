@@ -24,7 +24,7 @@ set(${FILE_SUFFIX} "")
 
 # Activate source code based on user options
 if(${USE_ULTERIUS})
-	if(${CMAKE_GENERATOR} MATCHES "Win64")
+	if(${CMAKE_GENERATOR_PLATFORM} MATCHES "Win64")
 		message(FATAL_ERROR "Xono2L Ulterius bindings are supported in 32-bit mode only")
 	endif()
 
