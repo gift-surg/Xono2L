@@ -27,22 +27,24 @@ build-against-ulterius:
   tags:
     - gift-hopper
 
-build-against-epiphan-sdk:
+build-against-epiphan-sdk-32bit:
   stage: build
+  variables:
+    arch_tag: 32bit
   script:
-    - mkdir build-%epiphansdk_tag%
-    - cd build-%epiphansdk_tag%
+    - mkdir build-%epiphansdk_tag%-%arch_tag%
+    - cd build-%epiphansdk_tag%-%arch_tag%
     - cmake -D USE_EPIPHAN:BOOL=ON ..
     - cmake --build . --config Release
     - dir
-    - dir Release\xono2l-%epiphansdk_tag%.dll
-    - file.exe Release\xono2l-%epiphansdk_tag%.dll | grep 80386  & REM Should fail if 64-bit
+    - dir Release\xono2l-%epiphansdk_tag%-%arch_tag%.dll
+    - file.exe Release\xono2l-%epiphansdk_tag%-%arch_tag%.dll | grep 80386  & REM Should fail if 64-bit
   artifacts:
     name: "%CI_JOB_NAME%-%CI_COMMIT_REF_NAME%"
     paths:
-      - build-%epiphansdk_tag%\Release\xono2l-%epiphansdk_tag%.dll
-      - build-%epiphansdk_tag%\Release\xono2l-%epiphansdk_tag%.lib
-      - build-%epiphansdk_tag%\Release\xono2l-%epiphansdk_tag%.exp
+      - build-%epiphansdk_tag%\Release\xono2l-%epiphansdk_tag%-%arch_tag%.dll
+      - build-%epiphansdk_tag%\Release\xono2l-%epiphansdk_tag%-%arch_tag%.lib
+      - build-%epiphansdk_tag%\Release\xono2l-%epiphansdk_tag%-%arch_tag%.exp
     expire_in: 1 week
   tags:
     - gift-hopper
