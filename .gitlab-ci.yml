@@ -48,3 +48,25 @@ build-against-epiphan-sdk-32bit:
     expire_in: 1 week
   tags:
     - gift-hopper
+
+build-against-epiphan-sdk-64bit:
+  stage: build
+  variables:
+    arch_tag: 64bit
+  script:
+    - mkdir build-%epiphansdk_tag%-%arch_tag%
+    - cd build-%epiphansdk_tag%-%arch_tag%
+    - cmake -A x64 -D USE_EPIPHAN:BOOL=ON ..
+    - cmake --build . --config Release
+    - dir
+    - dir Release\xono2l-%epiphansdk_tag%-%arch_tag%.dll
+    - file.exe Release\xono2l-%epiphansdk_tag%-%arch_tag%.dll | grep x86-64  & REM Should fail if 32-bit
+  artifacts:
+    name: "%CI_JOB_NAME%-%CI_COMMIT_REF_NAME%"
+    paths:
+      - build-%epiphansdk_tag%\Release\xono2l-%epiphansdk_tag%-%arch_tag%.dll
+      - build-%epiphansdk_tag%\Release\xono2l-%epiphansdk_tag%-%arch_tag%.lib
+      - build-%epiphansdk_tag%\Release\xono2l-%epiphansdk_tag%-%arch_tag%.exp
+    expire_in: 1 week
+  tags:
+    - gift-hopper
