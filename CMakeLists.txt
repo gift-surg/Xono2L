@@ -57,6 +57,12 @@ if (${USE_EPIPHAN})
 	)
 
 	string(CONCAT FILE_SUFFIX ${FILE_SUFFIX} "-epi")
+
+	if(${CMAKE_GENERATOR_PLATFORM} MATCHES "x64")
+		string(CONCAT FILE_SUFFIX ${FILE_SUFFIX} "-64bit")
+	else()
+		string(CONCAT FILE_SUFFIX ${FILE_SUFFIX} "-32bit")
+	endif()
 endif()
 
 # Set build parts
