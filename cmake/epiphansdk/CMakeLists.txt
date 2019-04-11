@@ -6,7 +6,6 @@ if(NOT DEFINED ENV{EpiphanSDK_DIR})
 endif(NOT DEFINED ENV{EpiphanSDK_DIR})
 
 # ZLIB
-SET(ZLIB_ROOT "C:\\Program Files\\zlib\\zlib-1.2.3-lib")  # TODO: this should not be hard-coded
 FIND_PACKAGE(ZLIB REQUIRED)
 
 # pthreads
@@ -35,9 +34,15 @@ SET(FrmGrab_HEADERS
     $ENV{EpiphanSDK_DIR}/epiphan/include/v2u_version.h
     $ENV{EpiphanSDK_DIR}/epiphan/frmgrab/include/frmgrab.h
     )
-SET(FrmGrab_LIB
-    $ENV{EpiphanSDK_DIR}/epiphan/frmgrab/lib/win/Win32/frmgrab.lib
-    ) # CMAKE_CURRENT_SOURCE_DIR necessary because of tests linking to this
+if(${CMAKE_GENERATOR_PLATFORM} MATCHES "x64")
+	SET(FrmGrab_LIB
+		$ENV{EpiphanSDK_DIR}/epiphan/frmgrab/lib/win/x64/frmgrab.lib
+		)
+else()
+	SET(FrmGrab_LIB
+		$ENV{EpiphanSDK_DIR}/epiphan/frmgrab/lib/win/Win32/frmgrab.lib
+		)
+endif()
 
 # SLIB
 SET(SLIB_HEADERS
