@@ -34,9 +34,9 @@ V2U_INT32 EpiphanController::determine_colour(const char *device_ident)
     V2U_INT32 colour_space = V2U_GRABFRAME_FORMAT_RGB24;
     std::string device_ident_(device_ident);
     std::string colour_spec = device_ident_.substr(device_ident_.size()-2);
-    if (colour_spec.compare("-c"))
+    if (colour_spec.compare("-c") == 0)
         colour_space = V2U_GRABFRAME_FORMAT_RGB24;
-    else if (colour_spec.compare("-i"))
+    else if (colour_spec.compare("-i") == 0)
         colour_space = V2U_GRABFRAME_FORMAT_I420;
     return colour_space;
 }
