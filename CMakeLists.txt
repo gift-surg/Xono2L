@@ -5,9 +5,6 @@ project(Xono2L)
 if(NOT WIN32)
     message(FATAL_ERROR "Xono2L is supported on Windows only")
 endif()
-if(${CMAKE_GENERATOR} MATCHES "Win64")
-    message(FATAL_ERROR "Xono2L is supported in 32-bit only")
-endif()
 
 # Activate CMake find scripts
 list(APPEND CMAKE_PREFIX_PATH ${CMAKE_SOURCE_DIR}/cmake)
@@ -27,6 +24,10 @@ set(${FILE_SUFFIX} "")
 
 # Activate source code based on user options
 if(${USE_ULTERIUS})
+	if(${CMAKE_GENERATOR_PLATFORM} MATCHES "x64")
+		message(FATAL_ERROR "Xono2L Ulterius bindings are supported in 32-bit mode only")
+	endif()
+
     add_definitions(-DUSE_ULTERIUS)
 
     # Try to locale Ulterius library
@@ -56,6 +57,12 @@ if (${USE_EPIPHAN})
 	)
 
 	string(CONCAT FILE_SUFFIX ${FILE_SUFFIX} "-epi")
+
+	if(${CMAKE_GENERATOR_PLATFORM} MATCHES "x64")
+		string(CONCAT FILE_SUFFIX ${FILE_SUFFIX} "-64bit")
+	else()
+		string(CONCAT FILE_SUFFIX ${FILE_SUFFIX} "-32bit")
+	endif()
 endif()
 
 # Set build parts
