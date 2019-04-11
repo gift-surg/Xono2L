@@ -42,7 +42,7 @@ public:
 
     bool get_data(uint8_t *data, uint32_t *width, uint32_t *height);
 
-    static V2U_INT32 determine_colour(const char *device_ident);
+    static V2U_INT32 determine_colour(const char *device_ident, char* serial_no);
 };
 
 static EpiphanController& epiphan_controller = EpiphanController::get_instance();
