@@ -1,6 +1,7 @@
 #include "epiphan_controller.h"
 
 #include <iostream>
+#include <string>
 
 #ifdef USE_EPIPHAN
 
@@ -28,6 +29,30 @@ EpiphanController& EpiphanController::get_instance()
 }
 
 
+V2U_INT32 EpiphanController::determine_colour(const char *device_ident, char* serial_no)
+{
+    V2U_INT32 colour_space = 0;
+    std::string device_ident_(device_ident);
+    std::string colour_spec = device_ident_.substr(device_ident_.size()-2);
+    size_t serial_no_length = device_ident_.size();
+    if (colour_spec.compare("-c") == 0)
+    {
+        colour_space = V2U_GRABFRAME_FORMAT_RGB24;
+        serial_no_length -= 2;
+    }
+    else if (colour_spec.compare("-i") == 0)
+    {
+        colour_space = V2U_GRABFRAME_FORMAT_I420;
+        serial_no_length -= 2;
+    }
+    else
+        colour_space = V2U_GRABFRAME_FORMAT_RGB24;
+
+    strcpy(serial_no, device_ident_.substr(0, serial_no_length).c_str());
+    return colour_space;
+}
+
+
 bool EpiphanController::start_acquisition(const char *device_ident)
 {
 	if (is_acquiring())
@@ -35,16 +60,16 @@ bool EpiphanController::start_acquisition(const char *device_ident)
 
 	FrmGrab_Init();
 
-	frame_grabber = FrmGrab_Open(device_ident);
+    char serial_no[100];
+    flags |= determine_colour(device_ident, serial_no);
+
+	frame_grabber = FrmGrab_Open(serial_no);
 
 	if (frame_grabber == NULL)
 	{
 		std::cerr << "Could not open " << device_ident << std::endl;
 		return false;
 	}
-
-	V2U_INT32 colour_space = V2U_GRABFRAME_FORMAT_I420;
-	flags |= colour_space;
 
 	// TODO: set ROI more intelligently
 	roi.x = 320;
@@ -86,8 +111,12 @@ bool EpiphanController::get_data(uint8_t *data, uint32_t *width, uint32_t *heigh
 	if (buffer == NULL)
 		return false;
 
-	size_t length_of_y = buffer->crop.width * buffer->crop.height;
-	memcpy(data, buffer->pixbuf, length_of_y);
+    size_t relevant_data_length = 0;
+    if (flags & V2U_GRABFRAME_FORMAT_I420)
+        relevant_data_length = buffer->crop.width * buffer->crop.height;
+    else if (flags & V2U_GRABFRAME_FORMAT_RGB24)
+        relevant_data_length = buffer->imagelen;
+	memcpy(data, buffer->pixbuf, relevant_data_length);
 	*width = buffer->crop.width;
 	*height = buffer->crop.height;
 
