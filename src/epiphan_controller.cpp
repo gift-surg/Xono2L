@@ -72,10 +72,10 @@ bool EpiphanController::start_acquisition(const char *device_ident)
 	}
 
 	// TODO: set ROI more intelligently
-	roi.x = 320;
-	roi.y = 160;
-	roi.width = 1280;
-	roi.height = 960;
+	roi.x = 234;
+	roi.y = 80;
+	roi.width = 1452;
+	roi.height = 1008;
 
 	return true;
 }
